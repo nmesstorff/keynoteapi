@@ -1,0 +1,421 @@
+{
+  "grid_dimension" : {
+    "x-axis" : {
+      "name" : "slot",
+      "rows" : "1"
+    },
+    "y-axis" : {
+      "name" : "agent",
+      "rows" : "6"
+    }
+  },
+  "grid-rows" : [ {
+    "x-num" : "1",
+    "y-num" : "1",
+    "x-alias" : "WPT_Ford",
+    "y-alias" : "USA - GA",
+    "perf_data" : [ {
+      "name" : "last_one_hour",
+      "value" : "17.583",
+      "duration" : "3600",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_24_hours",
+      "value" : "16.365",
+      "duration" : "86400",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_7_days",
+      "value" : "17.718",
+      "duration" : "604800",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_30_days",
+      "value" : "17.808",
+      "duration" : "2592000",
+      "unit" : "seconds"
+    } ],
+    "avail_data" : [ {
+      "name" : "last_one_hour",
+      "value" : "100.0",
+      "duration" : "3600",
+      "unit" : "percent"
+    }, {
+      "name" : "last_24_hours",
+      "value" : "100.0",
+      "duration" : "86400",
+      "unit" : "percent"
+    }, {
+      "name" : "last_7_days",
+      "value" : "99.702",
+      "duration" : "604800",
+      "unit" : "percent"
+    }, {
+      "name" : "last_30_days",
+      "value" : "95.525",
+      "duration" : "2592000",
+      "unit" : "percent"
+    } ],
+    "threshold_data" : [ {
+      "name" : "perfwarning",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "seconds"
+    }, {
+      "name" : "perfcritical",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "seconds"
+    }, {
+      "name" : "availwarning",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "percent"
+    }, {
+      "name" : "availcritical",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "percent"
+    } ]
+  }, {
+    "x-num" : "1",
+    "y-num" : "2",
+    "x-alias" : "WPT_Ford",
+    "y-alias" : "USA - West",
+    "perf_data" : [ {
+      "name" : "last_one_hour",
+      "value" : "61.111",
+      "duration" : "3600",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_24_hours",
+      "value" : "56.662",
+      "duration" : "86400",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_7_days",
+      "value" : "60.664",
+      "duration" : "604800",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_30_days",
+      "value" : "62.997",
+      "duration" : "2592000",
+      "unit" : "seconds"
+    } ],
+    "avail_data" : [ {
+      "name" : "last_one_hour",
+      "value" : "100.0",
+      "duration" : "3600",
+      "unit" : "percent"
+    }, {
+      "name" : "last_24_hours",
+      "value" : "100.0",
+      "duration" : "86400",
+      "unit" : "percent"
+    }, {
+      "name" : "last_7_days",
+      "value" : "98.81",
+      "duration" : "604800",
+      "unit" : "percent"
+    }, {
+      "name" : "last_30_days",
+      "value" : "95.529",
+      "duration" : "2592000",
+      "unit" : "percent"
+    } ],
+    "threshold_data" : [ {
+      "name" : "perfwarning",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "seconds"
+    }, {
+      "name" : "perfcritical",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "seconds"
+    }, {
+      "name" : "availwarning",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "percent"
+    }, {
+      "name" : "availcritical",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "percent"
+    } ]
+  }, {
+    "x-num" : "1",
+    "y-num" : "3",
+    "x-alias" : "WPT_Ford",
+    "y-alias" : "All",
+    "perf_data" : [ {
+      "name" : "last_one_hour",
+      "value" : "31.149",
+      "duration" : "3600",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_24_hours",
+      "value" : "29.947",
+      "duration" : "86400",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_7_days",
+      "value" : "31.948",
+      "duration" : "604800",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_30_days",
+      "value" : "33.224",
+      "duration" : "2592000",
+      "unit" : "seconds"
+    } ],
+    "avail_data" : [ {
+      "name" : "last_one_hour",
+      "value" : "100.0",
+      "duration" : "3600",
+      "unit" : "percent"
+    }, {
+      "name" : "last_24_hours",
+      "value" : "100.0",
+      "duration" : "86400",
+      "unit" : "percent"
+    }, {
+      "name" : "last_7_days",
+      "value" : "99.405",
+      "duration" : "604800",
+      "unit" : "percent"
+    }, {
+      "name" : "last_30_days",
+      "value" : "95.526",
+      "duration" : "2592000",
+      "unit" : "percent"
+    } ],
+    "threshold_data" : [ {
+      "name" : "perfwarning",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "seconds"
+    }, {
+      "name" : "perfcritical",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "seconds"
+    }, {
+      "name" : "availwarning",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "percent"
+    }, {
+      "name" : "availcritical",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "percent"
+    } ]
+  }, {
+    "x-num" : "1",
+    "y-num" : "4",
+    "x-alias" : "WPT_Ford",
+    "y-alias" : "TxP11 AMAX Private Agent",
+    "perf_data" : [ {
+      "name" : "last_one_hour",
+      "value" : "20.413",
+      "duration" : "3600",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_24_hours",
+      "value" : "14.562",
+      "duration" : "86400",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_7_days",
+      "value" : "-1.0",
+      "duration" : "604800",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_30_days",
+      "value" : "-1.0",
+      "duration" : "2592000",
+      "unit" : "seconds"
+    } ],
+    "avail_data" : [ {
+      "name" : "last_one_hour",
+      "value" : "100.0",
+      "duration" : "3600",
+      "unit" : "percent"
+    }, {
+      "name" : "last_24_hours",
+      "value" : "100.0",
+      "duration" : "86400",
+      "unit" : "percent"
+    }, {
+      "name" : "last_7_days",
+      "value" : "-1.0",
+      "duration" : "604800",
+      "unit" : "percent"
+    }, {
+      "name" : "last_30_days",
+      "value" : "-1.0",
+      "duration" : "2592000",
+      "unit" : "percent"
+    } ],
+    "threshold_data" : [ {
+      "name" : "perfwarning",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "seconds"
+    }, {
+      "name" : "perfcritical",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "seconds"
+    }, {
+      "name" : "availwarning",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "percent"
+    }, {
+      "name" : "availcritical",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "percent"
+    } ]
+  }, {
+    "x-num" : "1",
+    "y-num" : "5",
+    "x-alias" : "WPT_Ford",
+    "y-alias" : "AT&T",
+    "perf_data" : [ {
+      "name" : "last_one_hour",
+      "value" : "61.111",
+      "duration" : "3600",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_24_hours",
+      "value" : "56.662",
+      "duration" : "86400",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_7_days",
+      "value" : "60.664",
+      "duration" : "604800",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_30_days",
+      "value" : "62.997",
+      "duration" : "2592000",
+      "unit" : "seconds"
+    } ],
+    "avail_data" : [ {
+      "name" : "last_one_hour",
+      "value" : "100.0",
+      "duration" : "3600",
+      "unit" : "percent"
+    }, {
+      "name" : "last_24_hours",
+      "value" : "100.0",
+      "duration" : "86400",
+      "unit" : "percent"
+    }, {
+      "name" : "last_7_days",
+      "value" : "98.81",
+      "duration" : "604800",
+      "unit" : "percent"
+    }, {
+      "name" : "last_30_days",
+      "value" : "95.529",
+      "duration" : "2592000",
+      "unit" : "percent"
+    } ],
+    "threshold_data" : [ {
+      "name" : "perfwarning",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "seconds"
+    }, {
+      "name" : "perfcritical",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "seconds"
+    }, {
+      "name" : "availwarning",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "percent"
+    }, {
+      "name" : "availcritical",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "percent"
+    } ]
+  }, {
+    "x-num" : "1",
+    "y-num" : "6",
+    "x-alias" : "WPT_Ford",
+    "y-alias" : "ANS, Digex, Cable & Wireless, UUNET",
+    "perf_data" : [ {
+      "name" : "last_one_hour",
+      "value" : "17.583",
+      "duration" : "3600",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_24_hours",
+      "value" : "16.365",
+      "duration" : "86400",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_7_days",
+      "value" : "17.718",
+      "duration" : "604800",
+      "unit" : "seconds"
+    }, {
+      "name" : "last_30_days",
+      "value" : "17.808",
+      "duration" : "2592000",
+      "unit" : "seconds"
+    } ],
+    "avail_data" : [ {
+      "name" : "last_one_hour",
+      "value" : "100.0",
+      "duration" : "3600",
+      "unit" : "percent"
+    }, {
+      "name" : "last_24_hours",
+      "value" : "100.0",
+      "duration" : "86400",
+      "unit" : "percent"
+    }, {
+      "name" : "last_7_days",
+      "value" : "99.702",
+      "duration" : "604800",
+      "unit" : "percent"
+    }, {
+      "name" : "last_30_days",
+      "value" : "95.525",
+      "duration" : "2592000",
+      "unit" : "percent"
+    } ],
+    "threshold_data" : [ {
+      "name" : "perfwarning",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "seconds"
+    }, {
+      "name" : "perfcritical",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "seconds"
+    }, {
+      "name" : "availwarning",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "percent"
+    }, {
+      "name" : "availcritical",
+      "value" : "-1.0",
+      "duration" : "",
+      "unit" : "percent"
+    } ]
+  } ]
+}

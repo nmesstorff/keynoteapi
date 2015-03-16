@@ -1,0 +1,4 @@
+[report]
+exclude_lines =
+    def get_api_response
+    __version__

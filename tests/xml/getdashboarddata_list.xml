@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+  <dashboard_list_data>
+  <product id="TxP">
+  <name>TxP</name>
+  <measurement id="687588">
+  <alias>WPT_Ford</alias>
+  <avail_data>
+  <data_cell duration="300" name="last_five_minute" unit="percent" value="100" />
+  <data_cell duration="900" name="last_fifteen_minute" unit="percent" value="100" />
+  <data_cell duration="3600" name="last_one_hour" unit="percent" value="100" />
+  <data_cell duration="86400" name="last_24_hours" unit="percent" value="100" />
+  </avail_data>
+  <perf_data>
+  <data_cell duration="300" name="last_five_minute" unit="seconds" value="16.726" />
+  <data_cell duration="900" name="last_fifteen_minute" unit="seconds" value="16.726" />
+  <data_cell duration="3600" name="last_one_hour" unit="seconds" value="28.465" />
+  <data_cell duration="86400" name="last_24_hours" unit="seconds" value="28.783" />
+  </perf_data>
+  <threshold_data>
+  <data_cell duration="" name="perfwarning" unit="seconds" value="-1.0" />
+  <data_cell duration="" name="perfcritical" unit="seconds" value="-1.0" />
+  <data_cell duration="" name="availwarning" unit="percent" value="-1.0" />
+  <data_cell duration="" name="availcritical" unit="percent" value="-1.0" />
+  </threshold_data>
+  </measurement>
+  </product>
+  </dashboard_list_data>

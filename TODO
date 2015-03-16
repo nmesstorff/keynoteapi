@@ -1,0 +1,30 @@
+ - include pylint into testing
+ - refactoring for API calls:
+   New in V2:
+    getalarmsummary
+    getalarmformats
+    createalarmformat
+    editalarmformat
+    getmwindows
+    createmwindow
+    editmwindow
+    getbaselines
+    createbaseline
+    editbaseline
+    masscreatealarm
+    masseditalarm
+   BETA:
+    runalarms
+    getalarmlogs
+    createalarm
+    editalarm
+    deletealarm
+    resumealarm
+
+ - Complete Docstrings
+ - documentation with sphinx
+ - use clint or click for CLI
+ - change from urllib2 to requests module
+ - improve logging
+ - autoenv?
+ - Use ReStructured Text?

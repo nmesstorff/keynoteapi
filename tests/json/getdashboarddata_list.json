@@ -1,0 +1,82 @@
+{
+  "product" : [ {
+    "name" : "TxP",
+    "id" : "TxP",
+    "measurement" : [ {
+      "id" : "687588",
+      "alias" : "WPT_Ford",
+      "perf_data" : [ {
+        "name" : "last_five_minute",
+        "value" : "16.726",
+        "duration" : "300",
+        "unit" : "seconds"
+      }, {
+        "name" : "last_fifteen_minute",
+        "value" : "16.726",
+        "duration" : "900",
+        "unit" : "seconds"
+      }, {
+        "name" : "last_one_hour",
+        "value" : "28.465",
+        "duration" : "3600",
+        "unit" : "seconds"
+      }, {
+        "name" : "last_24_hours",
+        "value" : "28.783",
+        "duration" : "86400",
+        "unit" : "seconds"
+      } ],
+      "avail_data" : [ {
+        "name" : "last_five_minute",
+        "value" : "100",
+        "duration" : "300",
+        "unit" : "percent"
+      }, {
+        "name" : "last_fifteen_minute",
+        "value" : "98.059",
+        "duration" : "900",
+        "unit" : "percent"
+      }, {
+        "name" : "last_one_hour",
+        "value" : "98.193",
+        "duration" : "3600",
+        "unit" : "percent"
+      }, {
+        "name" : "last_24_hours",
+        "value" : "97.658",
+        "duration" : "86400",
+        "unit" : "percent"
+      } ],
+      "threshold_data" : [ {
+        "name" : "perfwarning",
+        "value" : "-1.0",
+        "duration" : "",
+        "unit" : "seconds"
+      }, {
+        "name" : "perfcritical",
+        "value" : "-1.0",
+        "duration" : "",
+        "unit" : "seconds"
+      }, {
+        "name" : "availwarning",
+        "value" : "-1.0",
+        "duration" : "",
+        "unit" : "percent"
+      }, {
+        "name" : "availcritical",
+        "value" : "-1.0",
+        "duration" : "",
+        "unit" : "percent"
+      } ]
+    } ]
+  } ],
+  "remaining_api_calls" : {
+    "hour_call_remaining" : 3596,
+    "day_call_remaining" : 21596
+  },
+  "link" : {
+    "type" : "application/json",
+    "href" : "http://api.keynote.com/keynote/api/getslotmetadata?api_key=01234-5678-0000-0000-000000000000&format=json",
+    "rel" : "slotmetadata"
+  }
+}
