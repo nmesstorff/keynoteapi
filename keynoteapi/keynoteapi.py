@@ -25,7 +25,7 @@ class KeynoteApi(object):
         else:
             try:
                 self.api_key = os.environ['KEYNOTE_API_KEY']
-            except KeyError, ex:
+            except KeyError as ex:
                 print("KeynoteAPI key not known. Use environment variable \
 'KEYNOTE_API_KEY' or pass api_key to class KeynoteApi\n")
                 raise ex

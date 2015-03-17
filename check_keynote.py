@@ -37,7 +37,7 @@ class Keynote(nagiosplugin.Resource):
             avail_data = availabilities[timerange]
             try:
                 avail_data = float(availabilities[timerange])
-            except Exception, e:
+            except Exception as e:
                 _log.debug(e)
                 _log.warning(
                     "unable to convert %s/%s/avail_data='%s' to float",
