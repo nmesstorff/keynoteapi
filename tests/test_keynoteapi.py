@@ -3,6 +3,7 @@
 """
 import unittest
 import os
+import sys
 import json
 import keynoteapi
 import keynoteapi.keynoteapi
@@ -81,7 +82,10 @@ class KeynoteapiTest(unittest.TestCase):
         testfile.close()
         result = json.loads(firstline)
         os.remove(testfilename)
-        assert type(result) == unicode
+        if sys.version_info < (3, 0):
+            assert type(result) == unicode
+        else:
+            assert type(result) == str
 
     def test_read_json_response_file_is_dict(self):
         """
