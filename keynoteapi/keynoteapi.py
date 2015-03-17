@@ -5,8 +5,11 @@
     Module to access the Keynote API from api.keynote.com
 """
 from __future__ import print_function
+try:
+    import urllib.request as request
+except ImportError:
+    import urllib2 as request
 import json
-import urllib2
 import os
 import time
 
@@ -93,7 +96,7 @@ class KeynoteApi(object):
             response = self.read_json_response_file(cache_filename)
         else:
             request_url = self.gen_api_url(api_cmd, self.api_key, 'json')
-            request_cmd = urllib2.urlopen(request_url)
+            request_cmd = request.urlopen(request_url)
             response = json.load(request_cmd)
             self.write_json_response(response, self.cache_filename + api_cmd)
             self.set_remaining_api_calls(response)
