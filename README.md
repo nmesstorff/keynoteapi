@@ -16,7 +16,8 @@ keynoteapi is a Python module to access the Keynote Systems API (api.keynote.com
 ##Requirements
 You need a API token to use the keynote API: http://api.keynote.com/apiconsole/apikeygen.aspx
 
-Install all needed python modules via pip: `pip install -r requirements.txt`
+Install all needed python modules via pip: 
+`pip install -r requirements.txt`
 
 ##Examples / How to start
  - Every command will print you a small help when starting with the '-h' or '--help' argument.
@@ -31,13 +32,14 @@ Install all needed python modules via pip: `pip install -r requirements.txt`
     `./check_keynote.py -k YOUR_TOKEN -m MEASUREMENT`
 
  - Use an environment variable for your API token
-    `export KEYNOTE_API_KEY=the-keynote-api-token-goeas-here`
-    `./keynoteCli.py -l`
+
+    export KEYNOTE_API_KEY=the-keynote-api-token-goeas-here
+    ./keynoteCli.py -l
 
 ##Running tests
 To run the tests and create a coverage report:
 
-    `python setup.py nosetests`
+    python setup.py nosetests
 
 ##Version numbers
 Releases are versioned via 'Semantic Versioning' - see http://semver.org.
@@ -63,4 +65,4 @@ The content of tests/json and tests/xml are based on the examples from Keynote S
 
 ##Contact
 Norman Meßtorff
-eMail: normes <at> normes dot org
+eMail: normes at normes dot org
