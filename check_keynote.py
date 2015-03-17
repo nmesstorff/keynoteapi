@@ -68,7 +68,7 @@ class Keynote(nagiosplugin.Resource):
             perf_data = perf_data[timerange]
             try:
                 perf_data = float(perf_data)
-            except Exception, e:
+            except Exception as e:
                 _log.debug(e)
                 _log.warning("unable to convert %s/%s/perf_data='%s' to float",
                              self.measurement_slot, timerange, perf_data)
