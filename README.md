@@ -31,8 +31,9 @@ Install all needed python modules via pip:
 
  - Use an environment variable for your API token
 
-    export KEYNOTE_API_KEY=the-keynote-api-token-goeas-here
-    ./keynoteCli.py -l
+    `export KEYNOTE_API_KEY=the-keynote-api-token-goeas-here`
+ 
+    `./keynoteCli.py -l`
 
 ##Running tests
 To run the tests and create a coverage report:
