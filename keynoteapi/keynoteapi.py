@@ -4,7 +4,7 @@
 
     Module to access the Keynote API from api.keynote.com
 """
-
+from __future__ import print_function
 import json
 import urllib2
 import os
@@ -26,8 +26,8 @@ class KeynoteApi(object):
             try:
                 self.api_key = os.environ['KEYNOTE_API_KEY']
             except KeyError, ex:
-                print "KeynoteAPI key not known. Use environment variable \
-'KEYNOTE_API_KEY' or pass api_key to class KeynoteApi\n"
+                print("KeynoteAPI key not known. Use environment variable \
+'KEYNOTE_API_KEY' or pass api_key to class KeynoteApi\n")
                 raise ex
         self.api_remaining_hour = None
         self.api_remaining_day = None

@@ -3,6 +3,7 @@
 
     (c) 2015 Norman Messtorff <normes@normes.org>
 """
+from __future__ import print_function
 from keynoteapi import KeynoteApi
 
 
@@ -14,17 +15,17 @@ class KeynoteCli(object):
     def listMeasurements(self):
         """List all available measurement slots and its data"""
         for measurement in self.kapi.get_products():
-            print "\n# '%s': " % measurement
-            print "  Availability data:"
+            print("\n# '%s': " % measurement)
+            print('  Availability data:')
             for timerange in self.kapi.get_avail_data(measurement):
-                print "    - %s:\t %s%%" % (
+                print("    - %s:\t %s%%" % (
                     timerange,
                     self.kapi.get_avail_data(measurement)[timerange]
-                    )
-            print "  Response times:"
+                    ))
+            print('  Response times:')
             for timerange in self.kapi.get_perf_data(measurement):
-                print "    - %s:\t %ss" % (
+                print("    - %s:\t %ss" % (
                     timerange,
                     self.kapi.get_perf_data(measurement)[timerange]
-                    )
+                    ))
         return True
