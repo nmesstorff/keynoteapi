@@ -3,10 +3,6 @@ keynoteapi is a Python module to access the Keynote Systems API (api.keynote.com
 
 [![Travis CI Build Status](https://travis-ci.org/nmesstorff/keynoteapi.png)](https://travis-ci.org/nmesstorff/keynoteapi)
 [![Coverage Status](https://coveralls.io/repos/nmesstorff/keynoteapi/badge.png)](https://coveralls.io/r/nmesstorff/)
-[![PyPI](http://img.shields.io/pypi/dm/keynoteapi.svg)](http://img.shields.io/pypi/dm/keynoteapi.svg)
-[![PyPI](https://pypip.in/versions/keynoteapi/badge.svg)](https://pypi.python.org/pypi/keynoteapi/)
-[![PyPI](https://pypip.in/py_versions/keynoteapi/badge.svg)](https://pypi.python.org/pypi/keynoteapi/)
-[![PyPI](https://pypip.in/downloads/keynoteapi/badge.svg)](https://pypi.python.org/pypi/keynoteapi/)
 
 ##Features
  - access dashboarddata
@@ -16,7 +12,7 @@ keynoteapi is a Python module to access the Keynote Systems API (api.keynote.com
 ##Requirements
 You need a API token to use the keynote API: http://api.keynote.com/apiconsole/apikeygen.aspx
 
-Install all needed python modules via pip: 
+Install all needed python modules via pip:
 `pip install -r requirements.txt`
 
 ##Examples / How to start
