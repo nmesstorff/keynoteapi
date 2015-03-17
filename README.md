@@ -1,6 +1,8 @@
 #Keynote API
 keynoteapi is a Python module to access the Keynote Systems API (api.keynote.com) with your personal API token.
 
+*This module runs only with Python 2.6 and above. Compatibility for Python 3 is in progress!*
+
 [![Travis CI Build Status](https://travis-ci.org/nmesstorff/keynoteapi.png)](https://travis-ci.org/nmesstorff/keynoteapi)
 [![Coverage Status](https://coveralls.io/repos/nmesstorff/keynoteapi/badge.png)](https://coveralls.io/r/nmesstorff/)
 
