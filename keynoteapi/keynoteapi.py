@@ -23,7 +23,7 @@ class KeynoteApi(object):
                   'last_one_hour': '1h', 'last_24_hours': '24h',
                   'last_one_week': '1week', 'last_one_month': '1month', }
 
-    def __init__(self, api_key=None):
+    def __init__(self, api_key=None, https_proxy=None):
         if api_key is not None:
             self.api_key = api_key
         else:
@@ -34,6 +34,7 @@ class KeynoteApi(object):
 'KEYNOTE_API_KEY' or 'api_key' parameter in KeynoteApi instance\n")
             sys.exit(1)
 
+        self.https_proxy = https_proxy
         self.api_remaining_hour = None
         self.api_remaining_day = None
         self.dashboarddata = None
@@ -95,7 +96,19 @@ class KeynoteApi(object):
             response = self.read_json_response_file(cache_filename)
         else:
             request_url = self.gen_api_url(api_cmd, self.api_key, 'json')
-            request_cmd = request.urlopen(request_url)
+
+            if self.https_proxy is not None:
+                proxy = request.ProxyHandler({
+                    'https': self.https_proxy
+                })
+                opener = request.build_opener(proxy)
+                request.install_opener(opener)
+
+            try:
+                request_cmd = request.urlopen(request_url)
+            except request.URLError, ex:
+                raise Exception("Error accessing API URL: %s" % ex)
+
             response = json.load(request_cmd)
             self.write_json_response(response, self.cache_filename + api_cmd)
             self.set_remaining_api_calls(response)
