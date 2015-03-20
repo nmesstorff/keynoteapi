@@ -140,10 +140,12 @@ class KeynoteApi(object):
             return: [ (product, id), (testprod, 4)]
         """
         products = {}
-        for product in self.get_dashboarddata()['product']:
-            for item in product['measurement']:
-                products[item['alias']] = item['id']
-        self.products = products
+        dashboard_data = self.get_dashboarddata()
+        if "product" in dashboard_data:
+            for product in dashboard_data['product']:
+                for item in product['measurement']:
+                    products[item['alias']] = item['id']
+            self.products = products
         return self.products
 
     def get_perf_data(self, product):
