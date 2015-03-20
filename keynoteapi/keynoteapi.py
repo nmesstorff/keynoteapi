@@ -12,6 +12,7 @@ except ImportError:
 import json
 import os
 import time
+import sys
 
 
 class KeynoteApi(object):
@@ -23,22 +24,24 @@ class KeynoteApi(object):
                   'last_one_week': '1week', 'last_one_month': '1month', }
 
     def __init__(self, api_key=None):
-        if api_key:
+        if api_key is not None:
             self.api_key = api_key
         else:
-            try:
-                self.api_key = os.environ['KEYNOTE_API_KEY']
-            except KeyError as ex:
-                print("KeynoteAPI key not known. Use environment variable \
-'KEYNOTE_API_KEY' or pass api_key to class KeynoteApi\n")
-                raise ex
+            self.api_key = os.getenv('KEYNOTE_API_KEY', None)
+
+        if self.api_key is None:
+            print("Unknown Keynote API key. Set via environment variable \
++'KEYNOTE_API_KEY' or 'api_key' parameter in KeynoteApi instance\n")
+            sys.exit(1)
+
         self.api_remaining_hour = None
         self.api_remaining_day = None
         self.dashboarddata = None
         self.products = None
         self.cache_usage = True
         self.cache_maxage = 60
-        self.cache_filename = '/tmp/.cache_keynoteapi_response_'
+        self.cache_filename = os.path.join('/tmp',
+                                           '.cache_keynoteapi_response_')
         self.mockinput = None
 
     def set_mockinput(self, mockinput):
@@ -52,16 +55,11 @@ class KeynoteApi(object):
             check if the cache is still usable or not
             returns True if the cache is still warm enought
         """
-        if os.path.isfile(filename):
-            file_mtime = os.path.getmtime(filename)
-        else:
-            file_mtime = 0
+        file_mtime = os.path.getmtime(filename) if os.path.isfile(filename) \
+            else 0
 
         cache_maxage = time.time() - self.cache_maxage
-        if file_mtime > cache_maxage:
-            return True
-        else:
-            return False
+        return file_mtime > cache_maxage
 
     @staticmethod
     def gen_api_url(api_cmd,
@@ -151,17 +149,17 @@ class KeynoteApi(object):
     def get_perf_data(self, product):
         """ getter for perf_data, the response times of your measurements """
         perf_data = {}
-        for typ in self.get_dashboarddata()['product'][0]['measurement']:
-            if typ['alias'] == product:
-                for item in typ['perf_data']:
+        for type_ in self.get_dashboarddata()['product'][0]['measurement']:
+            if type_['alias'] == product:
+                for item in type_['perf_data']:
                     perf_data[item['name']] = item['value']
         return perf_data
 
     def get_avail_data(self, product):
         """ getter for avail_data, the availability of your measurements """
         avail_data = {}
-        for typ in self.get_dashboarddata()['product'][0]['measurement']:
-            if typ['alias'] == product:
-                for item in typ['avail_data']:
+        for type_ in self.get_dashboarddata()['product'][0]['measurement']:
+            if type_['alias'] == product:
+                for item in type_['avail_data']:
                     avail_data[item['name']] = item['value']
         return avail_data

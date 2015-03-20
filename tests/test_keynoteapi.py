@@ -24,7 +24,9 @@ class KeynoteapiTest(unittest.TestCase):
         assert self.keyapi.api_key == 'test-api-key'
 
     def test_apikey_from_environment(self):
-        current_environment_value = os.environ.get('KEYNOTE_API_KEY')
+        # set default if no previous value set in environment,
+        # avoiding effective os.environ[...] = None below
+        current_environment_value = os.environ.get('KEYNOTE_API_KEY', 'foo')
         os.environ['KEYNOTE_API_KEY'] = 'environment-api-key'
         result = keynoteapi.keynoteapi.KeynoteApi()
         os.environ['KEYNOTE_API_KEY'] = current_environment_value
@@ -34,7 +36,7 @@ class KeynoteapiTest(unittest.TestCase):
     def test_missing_apikey(self):
         current_environment_value = os.environ.get('KEYNOTE_API_KEY')
         del os.environ['KEYNOTE_API_KEY']
-        self.assertRaises(KeyError, keynoteapi.keynoteapi.KeynoteApi)
+        self.assertRaises(SystemExit, keynoteapi.keynoteapi.KeynoteApi)
         os.environ['KEYNOTE_API_KEY'] = current_environment_value
 
     def test_class_timeranges_type(self):
@@ -239,6 +241,13 @@ class KeynoteapiTest(unittest.TestCase):
         test if we get a valid response from get_api_response()
         """
         pass
+
+    def test_set_remaining_api_calls_no_response(self):
+        """test if set_remaining_api_calls catches unsuccessful/empty response"""
+        self.keyapi.read_json_response_file(
+            'tests/json/getdashboarddata_noresponse.json')
+        assert self.keyapi.get_remaining_api_calls()[0] is None
+        assert self.keyapi.get_remaining_api_calls()[1] is None
 
     def test_set_remaining_api_calls_hour(self):
         """test if set_remaining_api_calls sets correct values"""
