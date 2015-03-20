@@ -117,12 +117,16 @@ class KeynoteApi(object):
         return response
 
     def set_remaining_api_calls(self, response):
-        """ safe the remaining api calls to keep the budget """
-        self.api_remaining_hour = \
-            response['remaining_api_calls']['hour_call_remaining']
-        self.api_remaining_day = \
-            response['remaining_api_calls']['day_call_remaining']
-        return self.get_remaining_api_calls()
+        """ save the remaining API calls to keep the budget """
+
+        if response is not None:
+            try:
+                self.api_remaining_hour = \
+                    response['remaining_api_calls']['hour_call_remaining']
+                self.api_remaining_day = \
+                    response['remaining_api_calls']['day_call_remaining']
+            except KeyError:
+                pass
 
     def get_remaining_api_calls(self):
         """ getter for remaining api calls. [0]=hourly, [1]=daily """
