@@ -2,7 +2,7 @@
     Norman Messtorff <normes@normes.org>
     (c) 2014 - 2015
 
-    Module to access the Keynote API from api.keynote.com
+    Module for accessing the Keynote API on api.keynote.com
 """
 from __future__ import print_function
 try:
@@ -12,6 +12,7 @@ except ImportError:
 import json
 import os
 import time
+import sys
 
 
 class KeynoteApi(object):
@@ -22,46 +23,44 @@ class KeynoteApi(object):
                   'last_one_hour': '1h', 'last_24_hours': '24h',
                   'last_one_week': '1week', 'last_one_month': '1month', }
 
-    def __init__(self, api_key=None):
-        if api_key:
+    def __init__(self, api_key=None, https_proxy=None):
+        if api_key is not None:
             self.api_key = api_key
         else:
-            try:
-                self.api_key = os.environ['KEYNOTE_API_KEY']
-            except KeyError as ex:
-                print("KeynoteAPI key not known. Use environment variable \
-'KEYNOTE_API_KEY' or pass api_key to class KeynoteApi\n")
-                raise ex
+            self.api_key = os.getenv('KEYNOTE_API_KEY', None)
+
+        if self.api_key is None:
+            print("Unknown Keynote API key. Set via environment variable \
+'KEYNOTE_API_KEY' or 'api_key' parameter in KeynoteApi instance\n")
+            sys.exit(1)
+
+        self.https_proxy = https_proxy
         self.api_remaining_hour = None
         self.api_remaining_day = None
         self.dashboarddata = None
         self.products = None
         self.cache_usage = True
         self.cache_maxage = 60
-        self.cache_filename = '/tmp/.cache_keynoteapi_response_'
+        self.cache_filename = os.path.join('/tmp',
+                                           '.cache_keynoteapi_response_')
         self.mockinput = None
 
     def set_mockinput(self, mockinput):
         """
-            setter for mockinput which should only used for testing
+            setter for mock input which should only be used for testing
         """
         self.mockinput = mockinput
 
     def check_cache_usable(self, filename):
         """
             check if the cache is still usable or not
-            returns True if the cache is still warm enought
+            returns True if the cache is still warm enough
         """
-        if os.path.isfile(filename):
-            file_mtime = os.path.getmtime(filename)
-        else:
-            file_mtime = 0
+        file_mtime = os.path.getmtime(filename) if os.path.isfile(filename) \
+            else 0
 
         cache_maxage = time.time() - self.cache_maxage
-        if file_mtime > cache_maxage:
-            return True
-        else:
-            return False
+        return file_mtime > cache_maxage
 
     @staticmethod
     def gen_api_url(api_cmd,
@@ -71,7 +70,8 @@ class KeynoteApi(object):
         """ generate a url for keynote access including json/xml format """
         valid_formats = ('json', 'xml')
         if api_format not in valid_formats:
-            raise ValueError
+            raise ValueError("%s not in valid formats %s" % (api_format,
+                             ", ".join(valid_formats)))
         api_url = "%s/%s?api_key=%s&format=%s" % (api_base, api_cmd,
                                                   api_key, api_format)
         return api_url
@@ -96,7 +96,19 @@ class KeynoteApi(object):
             response = self.read_json_response_file(cache_filename)
         else:
             request_url = self.gen_api_url(api_cmd, self.api_key, 'json')
-            request_cmd = request.urlopen(request_url)
+
+            if self.https_proxy is not None:
+                proxy = request.ProxyHandler({
+                    'https': self.https_proxy
+                })
+                opener = request.build_opener(proxy)
+                request.install_opener(opener)
+
+            try:
+                request_cmd = request.urlopen(request_url)
+            except request.URLError, ex:
+                raise Exception("Error accessing API URL: %s" % ex)
+
             response = json.load(request_cmd)
             self.write_json_response(response, self.cache_filename + api_cmd)
             self.set_remaining_api_calls(response)
@@ -104,27 +116,31 @@ class KeynoteApi(object):
 
     @staticmethod
     def write_json_response(data, filename):
-        """ write json data to local disc (used for caching)"""
+        """ write JSON data to local disk (used for caching)"""
         with open(filename, 'wb') as outfile:
             json.dump(data, outfile)
 
     def read_json_response_file(self, filename):
-        """ read json data from local disc """
+        """ read JSON data from local disk """
         with open(filename, 'rb') as infile:
             response = json.load(infile)
         self.set_remaining_api_calls(response)
         return response
 
     def set_remaining_api_calls(self, response):
-        """ safe the remaining api calls to keep the budget """
-        self.api_remaining_hour = \
-            response['remaining_api_calls']['hour_call_remaining']
-        self.api_remaining_day = \
-            response['remaining_api_calls']['day_call_remaining']
-        return self.get_remaining_api_calls()
+        """ save the remaining API calls to keep the budget """
+
+        if response is not None:
+            try:
+                self.api_remaining_hour = \
+                    response['remaining_api_calls']['hour_call_remaining']
+                self.api_remaining_day = \
+                    response['remaining_api_calls']['day_call_remaining']
+            except KeyError:
+                pass
 
     def get_remaining_api_calls(self):
-        """ getter for remaining api calls. [0]=hourly, [1]=daily """
+        """ getter for remaining API calls. [0]=hourly, [1]=daily """
         return [self.api_remaining_hour, self.api_remaining_day]
 
     def get_dashboarddata(self):
@@ -137,26 +153,30 @@ class KeynoteApi(object):
             return: [ (product, id), (testprod, 4)]
         """
         products = {}
-        for product in self.get_dashboarddata()['product']:
-            for item in product['measurement']:
-                products[item['alias']] = item['id']
-        self.products = products
+        dashboard_data = self.get_dashboarddata()
+        if "product" in dashboard_data:
+            for product in dashboard_data['product']:
+                for item in product['measurement']:
+                    products[item['alias']] = item['id']
+            self.products = products
         return self.products
 
     def get_perf_data(self, product):
         """ getter for perf_data, the response times of your measurements """
-        perf_data = {}
-        for typ in self.get_dashboarddata()['product'][0]['measurement']:
-            if typ['alias'] == product:
-                for item in typ['perf_data']:
-                    perf_data[item['name']] = item['value']
-        return perf_data
+        return self.get_data(product, data_type='perf_data')
 
     def get_avail_data(self, product):
         """ getter for avail_data, the availability of your measurements """
-        avail_data = {}
-        for typ in self.get_dashboarddata()['product'][0]['measurement']:
-            if typ['alias'] == product:
-                for item in typ['avail_data']:
-                    avail_data[item['name']] = item['value']
-        return avail_data
+        return self.get_data(product, data_type='avail_data')
+
+    def get_data(self, product, data_type=None):
+        """ getter for avail_data, perf_data """
+        data = {}
+        if data_type is not None:
+            dashboard_data = self.get_dashboarddata()
+            if "product" in dashboard_data:
+                for type_ in dashboard_data['product'][0]['measurement']:
+                    if type_['alias'] == product:
+                        for item in type_[data_type]:
+                            data[item['name']] = item['value']
+        return data
