@@ -71,7 +71,8 @@ class KeynoteApi(object):
         """ generate a url for keynote access including json/xml format """
         valid_formats = ('json', 'xml')
         if api_format not in valid_formats:
-            raise ValueError
+            raise ValueError("%s not in valid formats %s" % (api_format,
+                             ", ".join(valid_formats)))
         api_url = "%s/%s?api_key=%s&format=%s" % (api_base, api_cmd,
                                                   api_key, api_format)
         return api_url
