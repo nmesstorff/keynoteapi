@@ -150,18 +150,20 @@ class KeynoteApi(object):
 
     def get_perf_data(self, product):
         """ getter for perf_data, the response times of your measurements """
-        perf_data = {}
-        for type_ in self.get_dashboarddata()['product'][0]['measurement']:
-            if type_['alias'] == product:
-                for item in type_['perf_data']:
-                    perf_data[item['name']] = item['value']
-        return perf_data
+        return self.get_data(product, data_type='perf_data')
 
     def get_avail_data(self, product):
         """ getter for avail_data, the availability of your measurements """
-        avail_data = {}
-        for type_ in self.get_dashboarddata()['product'][0]['measurement']:
-            if type_['alias'] == product:
-                for item in type_['avail_data']:
-                    avail_data[item['name']] = item['value']
-        return avail_data
+        return self.get_data(product, data_type='avail_data')
+
+    def get_data(self, product, data_type=None):
+        """ getter for avail_data, perf_data """
+        data = {}
+        if data_type is not None:
+            dashboard_data = self.get_dashboarddata()
+            if "product" in dashboard_data:
+                for type_ in dashboard_data['product'][0]['measurement']:
+                    if type_['alias'] == product:
+                        for item in type_[data_type]:
+                            data[item['name']] = item['value']
+        return data
