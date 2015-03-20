@@ -20,7 +20,7 @@ class KeynoteapiTest(unittest.TestCase):
 
     def test_class_instance(self):
         result = keynoteapi.keynoteapi.KeynoteApi('test-api-key')
-        assert isinstance(result, keynoteapi.keynoteapi.KeynoteApi) == True
+        assert isinstance(result, keynoteapi.keynoteapi.KeynoteApi)
         assert self.keyapi.api_key == 'test-api-key'
 
     def test_apikey_from_environment(self):
@@ -30,7 +30,7 @@ class KeynoteapiTest(unittest.TestCase):
         os.environ['KEYNOTE_API_KEY'] = 'environment-api-key'
         result = keynoteapi.keynoteapi.KeynoteApi()
         os.environ['KEYNOTE_API_KEY'] = current_environment_value
-        assert isinstance(result, keynoteapi.keynoteapi.KeynoteApi) == True
+        assert isinstance(result, keynoteapi.keynoteapi.KeynoteApi)
         assert result.api_key == 'environment-api-key'
 
     def test_missing_apikey(self):
@@ -63,7 +63,7 @@ class KeynoteapiTest(unittest.TestCase):
         """
         result = self.keyapi.check_cache_usable(
             '/tmp/not-existing-testfile-for-keynoteapi')
-        assert result == False
+        assert result is False
 
     def test_cachable_filename_used(self):
         """
@@ -74,7 +74,7 @@ class KeynoteapiTest(unittest.TestCase):
         testfile.close()
         result = self.keyapi.check_cache_usable(testfilename)
         os.remove(testfilename)
-        assert result == True
+        assert result
 
     def test_write_json_response(self):
         testfilename = 'testfile-test_write_json_response'
@@ -293,7 +293,7 @@ class KeynoteapiTest(unittest.TestCase):
         response = self.keyapi.read_json_response_file(
             'tests/json/getdashboarddata_list.json')
         assert len(response) > 0
-        assert self.keyapi.get_dashboarddata() != None
+        assert self.keyapi.get_dashboarddata() is not None
 
     def test_get_dashboarddata_is_dict(self):
         """
@@ -315,7 +315,7 @@ class KeynoteapiTest(unittest.TestCase):
         """
         self.keyapi.set_mockinput(
             'tests/json/getdashboarddata_list.json')
-        assert self.keyapi.get_products() != None
+        assert self.keyapi.get_products() is not None
         assert self.keyapi.get_products() == self.keyapi.products
 
     def test_get_products_is_dict(self):
@@ -337,14 +337,14 @@ class KeynoteapiTest(unittest.TestCase):
         test if get_perfdata gets useful performance data
         """
         self.keyapi.set_mockinput('tests/json/getdashboarddata_list.json')
-        assert self.keyapi.get_perf_data('WPT_Ford')\
-            ['last_five_minute'] == '16.726'
-        assert self.keyapi.get_perf_data('WPT_Ford')\
-            ['last_fifteen_minute'] == '16.726'
-        assert self.keyapi.get_perf_data('WPT_Ford')\
-            ['last_one_hour'] == '28.465'
-        assert self.keyapi.get_perf_data('WPT_Ford')\
-            ['last_24_hours'] == '28.783'
+        assert self.keyapi.get_perf_data('WPT_Ford')['last_five_minute'] == \
+            '16.726'
+        assert self.keyapi.get_perf_data('WPT_Ford')['last_fifteen_minute'] == \
+            '16.726'
+        assert self.keyapi.get_perf_data('WPT_Ford')['last_one_hour'] == \
+            '28.465'
+        assert self.keyapi.get_perf_data('WPT_Ford')['last_24_hours'] == \
+            '28.783'
 
     def test_get_perf_data_is_dict(self):
         """
@@ -377,14 +377,14 @@ class KeynoteapiTest(unittest.TestCase):
     def test_avail_data(self):
         """docstring for test_avail_data"""
         self.keyapi.set_mockinput('tests/json/getdashboarddata_list.json')
-        assert self.keyapi.get_avail_data('WPT_Ford')\
-            ['last_five_minute'] == '100'
-        assert self.keyapi.get_avail_data('WPT_Ford')\
-            ['last_fifteen_minute'] == '98.059'
-        assert self.keyapi.get_avail_data('WPT_Ford')\
-            ['last_one_hour'] == '98.193'
-        assert self.keyapi.get_avail_data('WPT_Ford')\
-            ['last_24_hours'] == '97.658'
+        assert self.keyapi.get_avail_data('WPT_Ford')['last_five_minute'] == \
+            '100'
+        assert self.keyapi.get_avail_data('WPT_Ford')['last_fifteen_minute'] == \
+            '98.059'
+        assert self.keyapi.get_avail_data('WPT_Ford')['last_one_hour'] == \
+            '98.193'
+        assert self.keyapi.get_avail_data('WPT_Ford')['last_24_hours'] == \
+            '97.658'
 
     def test_avail_data_is_dict(self):
         """docstring for test_avail_data"""
