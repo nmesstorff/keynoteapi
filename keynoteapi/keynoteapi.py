@@ -2,7 +2,7 @@
     Norman Messtorff <normes@normes.org>
     (c) 2014 - 2015
 
-    Module to access the Keynote API from api.keynote.com
+    Module for accessing the Keynote API on api.keynote.com
 """
 from __future__ import print_function
 try:
@@ -31,7 +31,7 @@ class KeynoteApi(object):
 
         if self.api_key is None:
             print("Unknown Keynote API key. Set via environment variable \
-+'KEYNOTE_API_KEY' or 'api_key' parameter in KeynoteApi instance\n")
+'KEYNOTE_API_KEY' or 'api_key' parameter in KeynoteApi instance\n")
             sys.exit(1)
 
         self.api_remaining_hour = None
@@ -46,14 +46,14 @@ class KeynoteApi(object):
 
     def set_mockinput(self, mockinput):
         """
-            setter for mockinput which should only used for testing
+            setter for mock input which should only be used for testing
         """
         self.mockinput = mockinput
 
     def check_cache_usable(self, filename):
         """
             check if the cache is still usable or not
-            returns True if the cache is still warm enought
+            returns True if the cache is still warm enough
         """
         file_mtime = os.path.getmtime(filename) if os.path.isfile(filename) \
             else 0
@@ -103,12 +103,12 @@ class KeynoteApi(object):
 
     @staticmethod
     def write_json_response(data, filename):
-        """ write json data to local disc (used for caching)"""
+        """ write JSON data to local disk (used for caching)"""
         with open(filename, 'wb') as outfile:
             json.dump(data, outfile)
 
     def read_json_response_file(self, filename):
-        """ read json data from local disc """
+        """ read JSON data from local disk """
         with open(filename, 'rb') as infile:
             response = json.load(infile)
         self.set_remaining_api_calls(response)
@@ -127,7 +127,7 @@ class KeynoteApi(object):
                 pass
 
     def get_remaining_api_calls(self):
-        """ getter for remaining api calls. [0]=hourly, [1]=daily """
+        """ getter for remaining API calls. [0]=hourly, [1]=daily """
         return [self.api_remaining_hour, self.api_remaining_day]
 
     def get_dashboarddata(self):
