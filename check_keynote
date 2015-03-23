@@ -7,8 +7,7 @@ import time
 import logging
 import argparse
 import nagiosplugin
-import keynoteapi
-import keynotecli
+from keynoteapi import keynoteapi, keynotecli
 
 _log = logging.getLogger('nagiosplugin')
 

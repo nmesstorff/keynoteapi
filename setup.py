@@ -27,11 +27,10 @@ def read(*filenames, **kwargs):
 setup(
     name='keynoteapi',
     packages=find_packages(exclude=['tests']),
-    entry_points={'console_scripts': [
-        'check_keynote = keynoteapi.check_keynote:main',
-        'keynoteCli = keynoteapi.keynoteCli:main'
-        ]
-    },
+    scripts=[
+        'check_keynote',
+        'keynoteCli'
+    ],
     description='Access the Keynote Systems API (api.keynote.com)',
     long_description=read('README.md'),
     version=PKG_VER,
