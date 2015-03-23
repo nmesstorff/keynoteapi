@@ -24,7 +24,9 @@ class KeynoteapiTest(unittest.TestCase):
         assert self.keyapi.api_key == 'test-api-key'
 
     def test_apikey_from_environment(self):
-        current_environment_value = os.environ.get('KEYNOTE_API_KEY')
+        # set default if no previous value set in environment,
+        # avoiding effective os.environ[...] = None below
+        current_environment_value = os.environ.get('KEYNOTE_API_KEY', 'foo')
         os.environ['KEYNOTE_API_KEY'] = 'environment-api-key'
         result = keynoteapi.keynoteapi.KeynoteApi()
         os.environ['KEYNOTE_API_KEY'] = current_environment_value
