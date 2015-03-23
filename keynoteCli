@@ -6,7 +6,7 @@
 """
 
 import argparse
-import keynotecli
+from keynoteapi import keynotecli
 
 
 def main():
