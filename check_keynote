@@ -23,7 +23,7 @@ class Keynote(nagiosplugin.Resource):
         self.timeranges = ['last_five_minute', 'last_fifteen_minute',
                            'last_one_hour', 'last_24_hours']
 
-    def validateAvaildata(self, timerange):
+    def validate_availdata(self, timerange):
         """
         check if the requested timerange is element of the given availabilities
         and verify if we get a valid percentage value.
@@ -37,7 +37,7 @@ class Keynote(nagiosplugin.Resource):
             avail_data = availabilities[timerange]
             try:
                 avail_data = float(availabilities[timerange])
-            except Exception as e:
+            except ValueError as e:
                 _log.debug(e)
                 _log.warning(
                     "unable to convert %s/%s/avail_data='%s' to float",
@@ -55,7 +55,7 @@ class Keynote(nagiosplugin.Resource):
             _log.debug('RETURN:: False')
             return False
 
-    def validatePerfdata(self, timerange):
+    def validate_perfdata(self, timerange):
         """
         check if the requested responsetime is a valid value in seconds
 
@@ -68,7 +68,7 @@ class Keynote(nagiosplugin.Resource):
             perf_data = perf_data[timerange]
             try:
                 perf_data = float(perf_data)
-            except Exception as e:
+            except ValueError as e:
                 _log.debug(e)
                 _log.warning("unable to convert %s/%s/perf_data='%s' to float",
                              self.measurement_slot, timerange, perf_data)
@@ -95,7 +95,7 @@ class Keynote(nagiosplugin.Resource):
 
         for timerange in self.timeranges:
             # get availabillity metrics
-            avail_data = self.validateAvaildata(timerange)
+            avail_data = self.validate_availdata(timerange)
             if avail_data:
                 avail_counter += 1
                 yield nagiosplugin.Metric(
@@ -104,7 +104,7 @@ class Keynote(nagiosplugin.Resource):
                     context='availabillity_%s' % timerange)
 
             # get performance metrics
-            perf_data = self.validatePerfdata(timerange)
+            perf_data = self.validate_perfdata(timerange)
             if perf_data:
                 perf_counter += 1
                 yield nagiosplugin.Metric(
@@ -171,8 +171,6 @@ class KeynoteSummary(nagiosplugin.Summary):
 
 @nagiosplugin.guarded
 def main():
-    """main function"""
-    # parsing arguments
     argp = argparse.ArgumentParser()
     argp.add_argument('-v', '--verbose', action='count', default=0,
                       help='enable verbose logging up to 3 times. Default: 0')
@@ -245,6 +243,7 @@ def main():
         KeynoteSummary(args.measurement_slot)
         )
     check.main(verbose=args.verbose, timeout=args.timeout)
+
 
 if __name__ == '__main__':
     main()
