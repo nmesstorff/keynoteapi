@@ -14,11 +14,11 @@ _log = logging.getLogger('nagiosplugin')
 
 class Keynote(nagiosplugin.Resource):
     """Basic usage of KeynoteApi for this Nagios check"""
-    def __init__(self, apikey, measurement_slot):
+    def __init__(self, api_key, measurement_slot):
         """collect configuration for KeynoteApi class"""
         # init KeynoteApi class
         self.starttime = time.time()
-        self.kapi = keynoteapi.KeynoteApi(apikey)
+        self.kapi = keynoteapi.KeynoteApi(api_key)
         self.measurement_slot = measurement_slot
         self.timeranges = ['last_five_minute', 'last_fifteen_minute',
                            'last_one_hour', 'last_24_hours']
@@ -209,12 +209,12 @@ def main():
 
     # to be solved by an own ArgumentParser.Action later #TODO
     if args.list_measurement_slots:
-        kcli = keynotecli.KeynoteCli(args.apikey)
+        kcli = keynotecli.KeynoteCli(args.api_key)
         kcli.listMeasurements()
         exit(0)
 
     check = nagiosplugin.Check(
-        Keynote(args.apikey, args.measurement_slot),
+        Keynote(args.api_key, args.measurement_slot),
         nagiosplugin.ScalarContext('availabillity_last_five_minute',
                                    args.avail_warning, args.avail_critical),
         nagiosplugin.ScalarContext('availabillity_last_fifteen_minute',
