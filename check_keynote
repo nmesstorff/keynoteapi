@@ -3,6 +3,7 @@
     Norman Messtorff <normes@normes.org>
     (c) 2014 - 2015
 """
+import sys
 import time
 import logging
 import argparse
@@ -203,9 +204,8 @@ def main():
 
     # #TODO to be solved by an own ArgumentParser.Action later
     if args.list_measurement_slots:
-        kcli = keynotecli.KeynoteCli(args.apikey)
-        kcli.listMeasurements()
-        exit(0)
+        keynotecli.KeynoteCli(args.apikey).listMeasurements()
+        sys.exit(0)
 
     check = nagiosplugin.Check(
         Keynote(api_key=args.apikey, measurement_slot=args.measurement_slot,
