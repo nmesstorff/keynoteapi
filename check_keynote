@@ -9,6 +9,10 @@ import argparse
 import nagiosplugin
 from keynoteapi import keynoteapi, keynotecli
 
+
+description = """Nagios plugin using KeynoteApi module.
+"""
+
 _log = logging.getLogger('nagiosplugin')
 
 
@@ -171,7 +175,7 @@ class KeynoteSummary(nagiosplugin.Summary):
 
 @nagiosplugin.guarded
 def main():
-    argp = argparse.ArgumentParser()
+    argp = argparse.ArgumentParser(description=description)
     argp.add_argument('-v', '--verbose', action='count', default=0,
                       help='enable verbose logging up to 3 times. Default: 0')
     argp.add_argument('-t', '--timeout', type=int, default=10,
