@@ -184,6 +184,8 @@ def main():
                       help='timeout for running this script. Default: 10')
     argp.add_argument('-k', '--apikey', type=str, required=False,
                       help='your personal API key from api.keynote.com')
+    argp.add_argument('-p', '--https-proxy',
+                      help='HTTPS proxy server (e.g., "proxy.example.com:3128")')
     argp.add_argument('-l', '--list-measurement-slots', action='store_true',
                       help='list all available measurement slots and its'
                            ' current data values')
@@ -218,7 +220,7 @@ def main():
         exit(0)
 
     check = nagiosplugin.Check(
-        Keynote(args.api_key, args.measurement_slot),
+        Keynote(args.apikey, args.measurement_slot, args.https_proxy),
         nagiosplugin.ScalarContext('availability_last_five_minute',
                                    args.avail_warning, args.avail_critical),
         nagiosplugin.ScalarContext('availability_last_fifteen_minute',
