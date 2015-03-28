@@ -32,61 +32,49 @@ class Keynote(nagiosplugin.Resource):
         check if the requested time range maps to given availabilities
         and verifies if we get a valid percentage value.
 
-        returns requested availability or raises exception on invalid data
+        returns requested availability or None on invalid data
         """
         _log.debug('time range: %s', timerange)
 
         availabilities = self.kapi.get_avail_data(self.measurement_slot)
-        if timerange in availabilities:
-            avail_data = availabilities[timerange]
+        avail_data = availabilities.get(timerange, None)
+        if avail_data is not None:
             try:
-                avail_data = float(availabilities[timerange])
+                avail_data = float(avail_data)
             except ValueError as e:
                 _log.debug(e)
                 _log.warning(
                     "unable to convert %s/%s/avail_data='%s' to float",
                     self.measurement_slot, timerange, avail_data
                     )
-                _log.debug('RETURN:: False')
-                return False
 
-            if 0 <= avail_data <= 100:
-                _log.debug('RETURN:: %s', avail_data)
-                return avail_data
-            else:
-                _log.warning('invalid avail_data=\'%s\'', avail_data)
-        else:
-            _log.debug('RETURN:: False')
-            return False
+            if not (0 <= avail_data <= 100):
+                avail_data = None
+
+        return avail_data
 
     def validate_perfdata(self, timerange):
         """
         checks if the requested response time is a valid value in seconds
 
-        returns response time or raises exception on invalid data
+        returns response time or None on invalid data
         """
         _log.debug('time range: %s', timerange)
 
-        perf_data = self.kapi.get_perf_data(self.measurement_slot)
-        if timerange in perf_data:
-            perf_data = perf_data[timerange]
+        performance_data = self.kapi.get_perf_data(self.measurement_slot)
+        perf_data = performance_data.get(timerange, None)
+        if perf_data is not None:
             try:
                 perf_data = float(perf_data)
             except ValueError as e:
                 _log.debug(e)
                 _log.warning("unable to convert %s/%s/perf_data='%s' to float",
                              self.measurement_slot, timerange, perf_data)
-                _log.debug('RETURN:: False')
-                return False
 
-            if perf_data >= 0:
-                _log.debug('RETURN:: %s', perf_data)
-                return perf_data
-            else:
-                _log.warning('invalid perf_data=\'%s\'', perf_data)
-        else:
-            _log.debug('RETURN:: False')
-            return False
+            if not perf_data >= 0:
+                perf_data = None
+
+        return perf_data
 
     def probe(self):
         """
@@ -100,7 +88,7 @@ class Keynote(nagiosplugin.Resource):
         for timerange in self.timeranges:
             # get availability metrics
             avail_data = self.validate_availdata(timerange)
-            if avail_data:
+            if avail_data is not None:
                 avail_counter += 1
                 yield nagiosplugin.Metric(
                     "avail_%s" % self.kapi.timeranges[timerange],
@@ -109,7 +97,7 @@ class Keynote(nagiosplugin.Resource):
 
             # get performance metrics
             perf_data = self.validate_perfdata(timerange)
-            if perf_data:
+            if perf_data is not None:
                 perf_counter += 1
                 yield nagiosplugin.Metric(
                     "response_%s" % self.kapi.timeranges[timerange],
