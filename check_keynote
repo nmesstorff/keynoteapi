@@ -187,7 +187,7 @@ def main():
     argp.add_argument('-l', '--list-measurement-slots', action='store_true',
                       help='list all available measurement slots and its'
                            ' current data values')
-    argp.add_argument('-m', '--measurement-slot', type=str,
+    argp.add_argument('-m', '--measurement-slot', type=str, required=True,
                       help='measurement of your Keynote account to monitor')
     argp.add_argument('-a', '--avail-warning', metavar='RANGE', default='99:',
                       help='warning level for any time range of availabilites'
