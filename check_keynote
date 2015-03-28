@@ -25,12 +25,12 @@ class Keynote(nagiosplugin.Resource):
 
     def validate_availdata(self, timerange):
         """
-        check if the requested timerange is element of the given availabilities
-        and verify if we get a valid percentage value.
+        check if the requested time range maps to given availabilities
+        and verifies if we get a valid percentage value.
 
-        returns requested availabillity or raise exception on invalid data
+        returns requested availability or raises exception on invalid data
         """
-        _log.debug('timerange: %s', timerange)
+        _log.debug('time range: %s', timerange)
 
         availabilities = self.kapi.get_avail_data(self.measurement_slot)
         if timerange in availabilities:
@@ -57,11 +57,11 @@ class Keynote(nagiosplugin.Resource):
 
     def validate_perfdata(self, timerange):
         """
-        check if the requested responsetime is a valid value in seconds
+        checks if the requested response time is a valid value in seconds
 
-        returns responsetime or raise exception on invalid data
+        returns response time or raises exception on invalid data
         """
-        _log.debug('timerange: %s', timerange)
+        _log.debug('time range: %s', timerange)
 
         perf_data = self.kapi.get_perf_data(self.measurement_slot)
         if timerange in perf_data:
@@ -86,7 +86,7 @@ class Keynote(nagiosplugin.Resource):
 
     def probe(self):
         """
-        Iterate all timeranges and collect metrics for this probe.
+        Iterates over all time ranges and collects metrics for this probe.
 
         returns one or more metrics
         """
@@ -94,14 +94,14 @@ class Keynote(nagiosplugin.Resource):
         perf_counter = 0
 
         for timerange in self.timeranges:
-            # get availabillity metrics
+            # get availability metrics
             avail_data = self.validate_availdata(timerange)
             if avail_data:
                 avail_counter += 1
                 yield nagiosplugin.Metric(
                     "avail_%s" % self.kapi.timeranges[timerange],
                     avail_data, uom='%', min=0, max=100,
-                    context='availabillity_%s' % timerange)
+                    context='availability_%s' % timerange)
 
             # get performance metrics
             perf_data = self.validate_perfdata(timerange)
@@ -112,19 +112,19 @@ class Keynote(nagiosplugin.Resource):
                     perf_data, uom='s', min=0,
                     context='responsetime_%s' % timerange)
 
-        # verify if we got any availabillity result
+        # verify if we got any availability result
         _log.debug('avail_counter: %s', avail_counter)
         if avail_counter == 0:
-            raise RuntimeError('No availabillity in timeranges! '
+            raise RuntimeError('No availability in timeranges! '
                                '(Keynote Error? %s API calls left this hour)'
-                               % self.kapi.get_remaining_api_calls()[0],)
+                               % self.kapi.get_remaining_api_calls()[0])
 
         # verify if we got any responsetime result
         _log.debug('perf_counter: %s', perf_counter)
         if perf_counter == 0:
             raise RuntimeError('No responsetimes in timeranges! '
                                '(Keynote Error? %s API calls left this hour)'
-                               % self.kapi.get_remaining_api_calls()[0],)
+                               % self.kapi.get_remaining_api_calls()[0])
 
         # monitor available API calls to Keynote
         yield nagiosplugin.Metric("remaining_api_calls_hour",
@@ -141,13 +141,13 @@ class Keynote(nagiosplugin.Resource):
 
 class KeynoteSummary(nagiosplugin.Summary):
     """
-        Better statuslines on check output
+        Better status lines on check output
     """
     def __init__(self, measurement_slot):
         self.measurement_slot = measurement_slot
 
     def ok(self, results):
-        """Output on ok state"""
+        """Output on OK state"""
         _log.debug('results: %i in %s', len(results), results)
 
         output = "%s: " % self.measurement_slot
@@ -182,30 +182,30 @@ def main():
                       help='list all available measurement slots and its'
                            ' current data values')
     argp.add_argument('-m', '--measurement-slot', type=str,
-                      help='measurement of your keynote account to monitor')
+                      help='measurement of your Keynote account to monitor')
     argp.add_argument('-a', '--avail-warning', metavar='RANGE', default='99:',
-                      help='warning level for any timerange of availabillites'
+                      help='warning level for any time range of availabilites'
                       '. Default: \'99:\'')
     argp.add_argument('-A', '--avail-critical', metavar='RANGE', default='80:',
-                      help='critical level for any timerange of availabillites'
+                      help='critical level for any time range of availabilites'
                       '. Default: \'80:\'')
     argp.add_argument('-r', '--response-warning', metavar='RANGE',
-                      help='warning level for any timerange of responsetimes')
+                      help='warning level for any time range of response times')
     argp.add_argument('-R', '--response-critical', metavar='RANGE',
-                      help='critical level for any timerange of responsetimes')
+                      help='critical level for any time range of response times')
     argp.add_argument('--apicalls-hour-warning', metavar='RANGE',
-                      default='250:', help='warning level for any timerange of'
-                      ' responsetimes. Default: \'250:\'')
+                      default='250:', help='warning level for any time range of'
+                      ' response times. Default: \'250:\'')
     argp.add_argument('--apicalls-hour-critical', metavar='RANGE', default='',
-                      help='critical level for any timerange of responsetimes')
+                      help='critical level for any time range of response times')
     argp.add_argument('--apicalls-day-warning', metavar='RANGE',
-                      default='6000:', help='warning level for any timerange '
-                      'of responsetimes Default: \'6000:\'')
+                      default='6000:', help='warning level for any time range '
+                      'of response times. Default: \'6000:\'')
     argp.add_argument('--apicalls-day-critical', metavar='RANGE', default='',
-                      help='critical level for any timerange of responsetimes')
+                      help='critical level for any time range of response times')
     args = argp.parse_args()
 
-    # to be solved by an own ArgumentParser.Action later #TODO
+    # #TODO to be solved by an own ArgumentParser.Action later
     if args.list_measurement_slots:
         kcli = keynotecli.KeynoteCli(args.api_key)
         kcli.listMeasurements()
@@ -213,13 +213,13 @@ def main():
 
     check = nagiosplugin.Check(
         Keynote(args.api_key, args.measurement_slot),
-        nagiosplugin.ScalarContext('availabillity_last_five_minute',
+        nagiosplugin.ScalarContext('availability_last_five_minute',
                                    args.avail_warning, args.avail_critical),
-        nagiosplugin.ScalarContext('availabillity_last_fifteen_minute',
+        nagiosplugin.ScalarContext('availability_last_fifteen_minute',
                                    args.avail_warning, args.avail_critical),
-        nagiosplugin.ScalarContext('availabillity_last_one_hour',
+        nagiosplugin.ScalarContext('availability_last_one_hour',
                                    args.avail_warning, args.avail_critical),
-        nagiosplugin.ScalarContext('availabillity_last_24_hours',
+        nagiosplugin.ScalarContext('availability_last_24_hours',
                                    args.avail_warning, args.avail_critical),
         nagiosplugin.ScalarContext('responsetime_last_five_minute',
                                    args.response_warning,
