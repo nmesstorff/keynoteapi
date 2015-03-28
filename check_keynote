@@ -109,17 +109,21 @@ class Keynote(nagiosplugin.Resource):
         _log.debug('avail_counter: %s', avail_counter)
         if avail_counter == 0:
             calls_left = self.kapi.get_remaining_api_calls()[0]
-            raise AttributeError('No availability in time ranges! '
-                               '(Keynote Error? %s API calls left this hour)'
-                               % ("Unknown number of" if calls_left is None else calls_left))
+            raise AttributeError('No availability in time ranges! \
+                                 (Keynote Error? %s API calls \
+                                 left this hour)' %
+                                 ("Unknown number of" if calls_left
+                                  is None else calls_left))
 
         # verify if we got any responsetime result
         _log.debug('perf_counter: %s', perf_counter)
         if perf_counter == 0:
             calls_left = self.kapi.get_remaining_api_calls()[0]
-            raise AttributeError('No response times in time ranges! '
-                               '(Keynote Error? %s API calls left this hour)'
-                               % ("Unknown number of" if calls_left is None else calls_left))
+            raise AttributeError('No response times in time ranges! \
+                                 (Keynote Error? %s API calls \
+                                 left this hour)' %
+                                 ("Unknown number of" if calls_left
+                                  is None else calls_left))
 
         # monitor available API calls to Keynote
         yield nagiosplugin.Metric("remaining_api_calls_hour",
@@ -174,7 +178,7 @@ def main():
     argp.add_argument('-k', '--apikey', type=str, required=False,
                       help='your personal API key from api.keynote.com')
     argp.add_argument('-p', '--https-proxy',
-                      help='HTTPS proxy server (e.g., "proxy.example.com:3128")')
+                      help='HTTPS proxy server ("proxy.example.com:3128")')
     argp.add_argument('-l', '--list-measurement-slots', action='store_true',
                       help='list all available measurement slots and its'
                            ' current data values')
@@ -187,19 +191,23 @@ def main():
                       help='critical level for any time range of availabilites'
                       '. Default: \'80:\'')
     argp.add_argument('-r', '--response-warning', metavar='RANGE',
-                      help='warning level for any time range of response times')
+                      help='warning level for any time range of \
+                      response times')
     argp.add_argument('-R', '--response-critical', metavar='RANGE',
-                      help='critical level for any time range of response times')
+                      help='critical level for any time range of \
+                      response times')
     argp.add_argument('--apicalls-hour-warning', metavar='RANGE',
-                      default='250:', help='warning level for any time range of'
-                      ' response times. Default: \'250:\'')
+                      default='250:', help='warning level for any time range \
+                      of response times. Default: \'250:\'')
     argp.add_argument('--apicalls-hour-critical', metavar='RANGE', default='',
-                      help='critical level for any time range of response times')
+                      help='critical level for any time range of \
+                      response times')
     argp.add_argument('--apicalls-day-warning', metavar='RANGE',
                       default='6000:', help='warning level for any time range '
                       'of response times. Default: \'6000:\'')
     argp.add_argument('--apicalls-day-critical', metavar='RANGE', default='',
-                      help='critical level for any time range of response times')
+                      help='critical level for any time range of \
+                      response times')
     args = argp.parse_args()
 
     # #TODO to be solved by an own ArgumentParser.Action later

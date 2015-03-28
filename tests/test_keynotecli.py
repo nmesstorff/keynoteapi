@@ -14,4 +14,4 @@ class KeynotecliTest(unittest.TestCase):
     def test_class_instance(self):
         """ test if we get the right class instance """
         result = keynoteapi.keynotecli.KeynoteCli('test-api-key')
-        assert isinstance(result, keynoteapi.keynotecli.KeynoteCli) == True
+        assert isinstance(result, keynoteapi.keynotecli.KeynoteCli)
