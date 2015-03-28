@@ -108,7 +108,7 @@ class Keynote(nagiosplugin.Resource):
         _log.debug('avail_counter: %s', avail_counter)
         if avail_counter == 0:
             calls_left = self.kapi.get_remaining_api_calls()[0]
-            raise RuntimeError('No availability in time ranges! '
+            raise AttributeError('No availability in time ranges! '
                                '(Keynote Error? %s API calls left this hour)'
                                % ("Unknown number of" if calls_left is None else calls_left))
 
@@ -116,7 +116,7 @@ class Keynote(nagiosplugin.Resource):
         _log.debug('perf_counter: %s', perf_counter)
         if perf_counter == 0:
             calls_left = self.kapi.get_remaining_api_calls()[0]
-            raise RuntimeError('No response times in time ranges! '
+            raise AttributeError('No response times in time ranges! '
                                '(Keynote Error? %s API calls left this hour)'
                                % ("Unknown number of" if calls_left is None else calls_left))
 
