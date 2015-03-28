@@ -49,7 +49,8 @@ class Keynote(nagiosplugin.Resource):
                     self.measurement_slot, timerange, avail_data
                     )
 
-            if not (0 <= avail_data <= 100):
+            if not (type(avail_data) == float or type(avail_data) == int) or \
+                    not (0 <= avail_data <= 100):
                 avail_data = None
 
         return avail_data
@@ -72,7 +73,8 @@ class Keynote(nagiosplugin.Resource):
                 _log.warning("unable to convert %s/%s/perf_data='%s' to float",
                              self.measurement_slot, timerange, perf_data)
 
-            if not perf_data >= 0:
+            if not (type(perf_data) == float or type(perf_data) == int) or \
+                    not perf_data >= 0:
                 perf_data = None
 
         return perf_data
