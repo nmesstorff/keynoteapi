@@ -8,9 +8,9 @@ from keynoteapi import KeynoteApi
 
 
 class KeynoteCli(object):
-    """docstring for KeynoteCli"""
-    def __init__(self, apikey, mockinput=None):
-        self.kapi = KeynoteApi(apikey)
+
+    def __init__(self, api_key, mockinput=None):
+        self.kapi = KeynoteApi(api_key)
 
     def listMeasurements(self):
         """List all available measurement slots and its data"""
@@ -28,4 +28,3 @@ class KeynoteCli(object):
                     timerange,
                     self.kapi.get_perf_data(measurement)[timerange]
                     ))
-        return True
