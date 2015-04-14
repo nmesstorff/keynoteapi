@@ -10,8 +10,6 @@ from keynoteapi import keynotecli
 
 
 def main():
-    """main function"""
-    # parsing arguments
     argp = argparse.ArgumentParser()
     argp.add_argument('-v', '--verbose', action='count', default=0,
                       help='enable verbose logging up to 3 times. Default: 0')
@@ -19,6 +17,10 @@ def main():
                       help='timeout for running this script. Default: 10')
     argp.add_argument('-k', '--apikey', type=str, required=False,
                       help='your personal API key from api.keynote.com')
+    argp.add_argument('-p', '--https-proxy',
+                      help='HTTPS proxy server ("proxy.example.com:3128")')
+    argp.add_argument('-s', '--socks-proxy',
+                      help='SOCKS5 proxy server ("socks.example.com:1080")')
     argp.add_argument('-l', '--list-measurement-slots', action='store_true',
                       help='list all available measurement slots and its'
                            ' current data values')
@@ -26,11 +28,14 @@ def main():
                       help='measurement of your keynote account to monitor')
     args = argp.parse_args()
 
-    keycli = keynotecli.KeynoteCli(args.apikey)
-    # to be solved by an own ArgumentParser.Action later #TODO
+    keycli = keynotecli.KeynoteCli(args.apikey, proxies={
+        'https': args.https_proxy,
+        'socks': args.socks_proxy
+    })
+
+    # TODO to be solved by an own ArgumentParser.Action later
     if args.list_measurement_slots:
-        keycli.listMeasurements()
-        exit(0)
+        keycli.list_measurements()
 
 if __name__ == '__main__':
     main()

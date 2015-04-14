@@ -5,6 +5,15 @@
     Module for accessing the Keynote API on api.keynote.com
 """
 from __future__ import print_function
+
+# are we able to support SOCKS proxies?
+try:
+    import requesocks
+except ImportError:
+    socks_support = False
+else:
+    socks_support = True
+
 try:
     import urllib.request as request
 except ImportError:
@@ -23,7 +32,7 @@ class KeynoteApi(object):
                   'last_one_hour': '1h', 'last_24_hours': '24h',
                   'last_one_week': '1week', 'last_one_month': '1month', }
 
-    def __init__(self, api_key=None, https_proxy=None):
+    def __init__(self, api_key=None, proxies=None):
         if api_key is not None:
             self.api_key = api_key
         else:
@@ -34,7 +43,7 @@ class KeynoteApi(object):
 'KEYNOTE_API_KEY' or 'api_key' parameter in KeynoteApi instance\n")
             sys.exit(1)
 
-        self.https_proxy = https_proxy
+        self.proxies = proxies
         self.api_remaining_hour = None
         self.api_remaining_day = None
         self.dashboarddata = None
@@ -97,19 +106,43 @@ class KeynoteApi(object):
         else:
             request_url = self.gen_api_url(api_cmd, self.api_key, 'json')
 
-            if self.https_proxy is not None:
-                proxy = request.ProxyHandler({
-                    'https': self.https_proxy
-                })
-                opener = request.build_opener(proxy)
-                request.install_opener(opener)
+            if self.proxies is not None and \
+                    self.proxies.get('socks', None) is not None \
+                    and socks_support:
 
-            try:
-                request_cmd = request.urlopen(request_url)
-            except request.URLError, ex:
-                raise Exception("Error accessing API URL: %s" % ex)
+                session = requesocks.session()
+                session.proxies = {
+                    'https': "socks5://%s" % self.proxies['socks']
+                }
 
-            response = json.load(request_cmd)
+                try:
+                    resp = session.get(request_url)
+                except Exception as ex:
+                    raise Exception("Error accessing API URL: %s" % ex)
+
+                # TODO if resp.status_code < 300 ...
+                # using .content instead of .text because of
+                # binary (gzipped) response
+                response = json.loads(resp.content)
+            else:
+                if self.proxies is not None and \
+                        self.proxies.get('https', None) is not None:
+
+                    proxy = request.ProxyHandler({
+                        'https': self.proxies['https']
+                    })
+                    opener = request.build_opener(proxy)
+                    request.install_opener(opener)
+
+                # else open URL without proxy
+                try:
+                    request_cmd = request.urlopen(request_url)
+                except request.URLError, ex:
+                    raise Exception("Error accessing API URL: %s" % ex)
+
+                # TODO if resp.status_code < 300 ...
+                response = json.load(request_cmd)
+
             self.write_json_response(response, self.cache_filename + api_cmd)
             self.set_remaining_api_calls(response)
         return response

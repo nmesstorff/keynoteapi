@@ -19,11 +19,11 @@ _log = logging.getLogger('nagiosplugin')
 
 class Keynote(nagiosplugin.Resource):
     """Basic usage of KeynoteApi for this Nagios check"""
-    def __init__(self, api_key, measurement_slot, https_proxy=None):
+    def __init__(self, api_key, measurement_slot, proxies=None):
         """collect configuration for KeynoteApi class"""
         # init KeynoteApi class
         self.starttime = time.time()
-        self.kapi = keynoteapi.KeynoteApi(api_key)
+        self.kapi = keynoteapi.KeynoteApi(api_key, proxies=proxies)
         self.measurement_slot = measurement_slot
         self.timeranges = ['last_five_minute', 'last_fifteen_minute',
                            'last_one_hour', 'last_24_hours']
@@ -181,6 +181,8 @@ def main():
                       help='your personal API key from api.keynote.com')
     argp.add_argument('-p', '--https-proxy',
                       help='HTTPS proxy server ("proxy.example.com:3128")')
+    argp.add_argument('-s', '--socks-proxy',
+                      help='SOCKS5 proxy server ("socks.example.com:1080")')
     argp.add_argument('-l', '--list-measurement-slots', action='store_true',
                       help='list all available measurement slots and its'
                            ' current data values')
@@ -212,14 +214,19 @@ def main():
                       response times')
     args = argp.parse_args()
 
-    # #TODO to be solved by an own ArgumentParser.Action later
+    # TODO to be solved by an own ArgumentParser.Action later
     if args.list_measurement_slots:
-        keynotecli.KeynoteCli(args.apikey).listMeasurements()
+        keynotecli.KeynoteCli(args.apikey, proxies={
+                              'https': args.https_proxy,
+                              'socks': args.socks_proxy}).list_measurements()
         sys.exit(0)
 
     check = nagiosplugin.Check(
         Keynote(api_key=args.apikey, measurement_slot=args.measurement_slot,
-                https_proxy=args.https_proxy),
+                proxies={
+                    'https': args.https_proxy,
+                    'socks': args.socks_proxy
+                    }),
         nagiosplugin.ScalarContext('availability_last_five_minute',
                                    args.avail_warning, args.avail_critical),
         nagiosplugin.ScalarContext('availability_last_fifteen_minute',
