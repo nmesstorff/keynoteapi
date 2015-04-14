@@ -4,3 +4,9 @@ lib
 man
 pip-selfcheck.json
 *.pyc
+*.idea*
+*.egg*
+dist/
+build/
+.coverage
+
