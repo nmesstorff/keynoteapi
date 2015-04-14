@@ -11,6 +11,7 @@ class KeynoteCli(object):
 
     def __init__(self, api_key, mockinput=None, proxies=None):
         self.kapi = KeynoteApi(api_key, proxies=proxies)
+        self.kapi.set_mockinput(mockinput)
 
     def list_measurements(self):
         """List all available measurement slots and its data"""
