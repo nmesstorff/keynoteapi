@@ -405,3 +405,19 @@ class KeynoteapiTest(unittest.TestCase):
         """docstring for test_avail_data"""
         self.keyapi.set_mockinput('tests/json/getdashboarddata_list.json')
         assert len(self.keyapi.get_avail_data('invalid product')) == 0
+
+    def test_socks_proxy_passed_to_api_class(self):
+        test_proxy = 'socks.test.com:1080'
+        kapi = keynoteapi.keynoteapi.KeynoteApi('test-api-key', proxies={
+                                                'socks': test_proxy
+                                                })
+        assert kapi.proxies is not None
+        assert kapi.proxies['socks'] == test_proxy
+
+    def test_https_proxy_passed_to_api_class(self):
+        test_proxy = 'proxy.test.com:3128'
+        kapi = keynoteapi.keynoteapi.KeynoteApi('test-api-key', proxies={
+                                                'https': test_proxy
+                                                })
+        assert kapi.proxies is not None
+        assert kapi.proxies['https'] == test_proxy
