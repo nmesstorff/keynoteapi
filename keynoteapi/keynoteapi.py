@@ -47,7 +47,6 @@ class KeynoteApi(object):
         self.api_remaining_hour = None
         self.api_remaining_day = None
         self.dashboarddata = None
-        self.products = None
         self.cache_usage = True
         self.cache_maxage = 60
         self.cache_filename = os.path.join('/tmp',
@@ -180,36 +179,32 @@ class KeynoteApi(object):
         """ getter for processed dashboarddata """
         return self.get_api_response('getdashboarddata')
 
-    def get_products(self):
+    def get_measurement_slots(self):
         """
-            process products / measurements from class local dashboarddata
+            process measurement slots from class-local dashboarddata
             return: [ (product, id), (testprod, 4)]
         """
-        products = {}
-        dashboard_data = self.get_dashboarddata()
-        if "product" in dashboard_data:
-            for product in dashboard_data['product']:
-                for item in product['measurement']:
-                    products[item['alias']] = item['id']
-            self.products = products
-        return self.products
+        slots = {}
+        for product in self.get_dashboarddata().get('product', []):
+            for item in product.get('measurement', []):
+                slots[item['alias']] = item['id']
+        return slots
 
-    def get_perf_data(self, product):
+    def get_perf_data(self, measurement_slot):
         """ getter for perf_data, the response times of your measurements """
-        return self.get_data(product, data_type='perf_data')
+        return self.get_data(measurement_slot, data_type='perf_data')
 
-    def get_avail_data(self, product):
+    def get_avail_data(self, measurement_slot):
         """ getter for avail_data, the availability of your measurements """
-        return self.get_data(product, data_type='avail_data')
+        return self.get_data(measurement_slot, data_type='avail_data')
 
-    def get_data(self, product, data_type=None):
+    def get_data(self, measurement_slot, data_type=None):
         """ getter for avail_data, perf_data """
         data = {}
         if data_type is not None:
-            dashboard_data = self.get_dashboarddata()
-            if "product" in dashboard_data:
-                for type_ in dashboard_data['product'][0]['measurement']:
-                    if type_['alias'] == product:
+            for product in self.get_dashboarddata().get('product', []):
+                for type_ in product.get('measurement', []):
+                    if type_['alias'] == measurement_slot:
                         for item in type_[data_type]:
                             data[item['name']] = item['value']
         return data

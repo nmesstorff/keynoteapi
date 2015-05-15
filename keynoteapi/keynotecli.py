@@ -15,7 +15,7 @@ class KeynoteCli(object):
 
     def list_measurements(self):
         """List all available measurement slots and its data"""
-        for measurement in self.kapi.get_products():
+        for measurement in self.kapi.get_measurement_slots():
             print("\n# '%s': " % measurement)
             print('  Availability data:')
             for timerange in self.kapi.get_avail_data(measurement):

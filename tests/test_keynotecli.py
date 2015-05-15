@@ -22,7 +22,7 @@ class KeynotecliTest(unittest.TestCase):
 
         kcli = keynoteapi.keynotecli.KeynoteCli('test-api-key', mockinput='tests/json/getdashboarddata_list.json')
         assert kcli.kapi is not None
-        assert "WPT_Ford" in kcli.kapi.get_products()
+        assert "WPT_Ford" in kcli.kapi.get_measurement_slots()
         saved_stdout = sys.stdout
         try:
             out = StringIO()
