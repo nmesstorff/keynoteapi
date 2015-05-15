@@ -184,7 +184,7 @@ class KeynoteapiTest(unittest.TestCase):
         assert result['remaining_api_calls']['hour_call_remaining'] == 3596
         assert result['remaining_api_calls']['day_call_remaining'] == 21596
 
-    def test_read_json_response_file_data_remaining_api_calls_eq_clasvariables(self):
+    def test_read_json_response_file_data_remaining_api_calls_eq_classvariables(self):
         result = self.keyapi.read_json_response_file(
             'tests/json/getdashboarddata_list.json')
         assert result['remaining_api_calls']['hour_call_remaining'] ==\
@@ -309,28 +309,28 @@ class KeynoteapiTest(unittest.TestCase):
         self.keyapi.set_mockinput('tests/json/getdashboarddata_list.json')
         assert len(self.keyapi.get_dashboarddata()) == 3
 
-    def test_get_products_eq_data(self):
+    def test_get_measurement_slots_eq_data(self):
         """
         test if the getter of products is working
         """
         self.keyapi.set_mockinput(
             'tests/json/getdashboarddata_list.json')
-        assert self.keyapi.get_products() is not None
-        assert self.keyapi.get_products() == self.keyapi.products
+        assert self.keyapi.get_measurement_slots() is not None
+        assert len(self.keyapi.get_measurement_slots()) > 0
 
-    def test_get_products_is_dict(self):
+    def test_get_measurement_slots_is_dict(self):
         """
         test if the getter of products is working
         """
         self.keyapi.set_mockinput('tests/json/getdashboarddata_list.json')
-        assert type(self.keyapi.get_products()) == dict
+        assert type(self.keyapi.get_measurement_slots()) == dict
 
-    def test_get_products_has_one_element(self):
+    def test_get_measurement_slots_has_one_element(self):
         """
         test if the getter of products is working
         """
         self.keyapi.set_mockinput('tests/json/getdashboarddata_list.json')
-        assert len(self.keyapi.get_products()) == 1
+        assert len(self.keyapi.get_measurement_slots()) == 1
 
     def test_get_perf_data(self):
         """
