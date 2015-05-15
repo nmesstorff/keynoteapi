@@ -184,7 +184,7 @@ class KeynoteapiTest(unittest.TestCase):
         assert result['remaining_api_calls']['hour_call_remaining'] == 3596
         assert result['remaining_api_calls']['day_call_remaining'] == 21596
 
-    def test_read_json_response_file_data_remaining_api_calls_eq_clasvariables(self):
+    def test_read_json_response_file_data_remaining_api_calls_eq_classvariables(self):
         result = self.keyapi.read_json_response_file(
             'tests/json/getdashboarddata_list.json')
         assert result['remaining_api_calls']['hour_call_remaining'] ==\

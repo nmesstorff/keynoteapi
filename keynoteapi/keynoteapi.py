@@ -6,14 +6,6 @@
 """
 from __future__ import print_function
 
-# are we able to support SOCKS proxies?
-try:
-    import requesocks
-except ImportError:
-    socks_support = False
-else:
-    socks_support = True
-
 try:
     import urllib.request as request
 except ImportError:
@@ -106,23 +98,27 @@ class KeynoteApi(object):
             request_url = self.gen_api_url(api_cmd, self.api_key, 'json')
 
             if self.proxies is not None and \
-                    self.proxies.get('socks', None) is not None \
-                    and socks_support:
-
-                session = requesocks.session()
-                session.proxies = {
-                    'https': "socks5://%s" % self.proxies['socks']
-                }
+                    self.proxies.get('socks', None) is not None:
 
                 try:
-                    resp = session.get(request_url)
-                except Exception as ex:
-                    raise Exception("Error accessing API URL: %s" % ex)
+                    import requesocks
+                except ImportError as err:
+                    raise ImportError("Unable to use SOCKS proxy server: %s" % err)
+                else:
+                    session = requesocks.session()
+                    session.proxies = {
+                        'https': "socks5://%s" % self.proxies['socks']
+                    }
 
-                # TODO if resp.status_code < 300 ...
-                # using .content instead of .text because of
-                # binary (gzipped) response
-                response = json.loads(resp.content)
+                    try:
+                        resp = session.get(request_url)
+                    except Exception as ex:
+                        raise Exception("Error accessing API URL: %s" % ex)
+
+                    # TODO if resp.status_code < 300 ...
+                    # using .content instead of .text because of
+                    # binary (gzipped) response
+                    response = json.loads(resp.content)
             else:
                 if self.proxies is not None and \
                         self.proxies.get('https', None) is not None:
@@ -133,7 +129,8 @@ class KeynoteApi(object):
                     opener = request.build_opener(proxy)
                     request.install_opener(opener)
 
-                # else open URL without proxy
+                # _continue_ with... OR
+                # _else_ open URL without proxy
                 try:
                     request_cmd = request.urlopen(request_url)
                 except request.URLError, ex:
