@@ -28,7 +28,7 @@ class KeynoteApi(object):
         if api_key is not None:
             self.api_key = api_key
         else:
-            self.api_key = os.getenv('KEYNOTE_API_KEY', None)
+            self.api_key = os.getenv('KEYNOTE_API_KEY')
 
         if self.api_key is None:
             print("Unknown Keynote API key. Set via environment variable \
@@ -98,7 +98,7 @@ class KeynoteApi(object):
             request_url = self.gen_api_url(api_cmd, self.api_key, 'json')
 
             if self.proxies is not None and \
-                    self.proxies.get('socks', None) is not None:
+                    self.proxies.get('socks') is not None:
 
                 try:
                     import requesocks
@@ -122,7 +122,7 @@ class KeynoteApi(object):
                     response = json.loads(resp.content)
             else:
                 if self.proxies is not None and \
-                        self.proxies.get('https', None) is not None:
+                        self.proxies.get('https') is not None:
 
                     proxy = request.ProxyHandler({
                         'https': self.proxies['https']

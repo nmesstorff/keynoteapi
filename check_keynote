@@ -38,7 +38,7 @@ class Keynote(nagiosplugin.Resource):
         _log.debug('time range: %s', timerange)
 
         availabilities = self.kapi.get_avail_data(self.measurement_slot)
-        avail_data = availabilities.get(timerange, None)
+        avail_data = availabilities.get(timerange)
         if avail_data is not None:
             try:
                 avail_data = float(avail_data)
@@ -64,7 +64,7 @@ class Keynote(nagiosplugin.Resource):
         _log.debug('time range: %s', timerange)
 
         performance_data = self.kapi.get_perf_data(self.measurement_slot)
-        perf_data = performance_data.get(timerange, None)
+        perf_data = performance_data.get(timerange)
         if perf_data is not None:
             try:
                 perf_data = float(perf_data)
