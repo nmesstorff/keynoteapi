@@ -190,14 +190,20 @@ class KeynoteApi(object):
 
     def get_perf_data(self, measurement_slot):
         """ getter for perf_data, the response times of your measurements """
-        return self.get_data(measurement_slot, data_type='perf_data')
+        return self._get_data(measurement_slot, data_type='perf_data')
 
     def get_avail_data(self, measurement_slot):
         """ getter for avail_data, the availability of your measurements """
-        return self.get_data(measurement_slot, data_type='avail_data')
+        return self._get_data(measurement_slot, data_type='avail_data')
 
-    def get_data(self, measurement_slot, data_type=None):
-        """ getter for avail_data, perf_data """
+    def get_threshold_data(self, measurement_slot):
+        """ getter for threshold_data, pre-configured warning/critical
+            thresholds contained in response
+        """
+        return self._get_data(measurement_slot, data_type='threshold_data')
+
+    def _get_data(self, measurement_slot, data_type=None):
+        """ getter for avail_data, perf_data, threshold_data """
         data = {}
         if data_type is not None:
             for product in self.get_dashboarddata().get('product', []):
