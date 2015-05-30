@@ -30,8 +30,13 @@ class KeynotecliTest(unittest.TestCase):
             kcli.list_measurements()
             output = out.getvalue().strip()
             assert "Availability data" in output
-            assert "Response times" in output
             assert "- last_24_hours:\t 97.658%" in output
+            assert "Response times" in output
             assert "- last_24_hours:\t 28.783s" in output
+            assert "Threshold data" in output
+            assert "    - availability warning: -1.0" in output
+            assert "    - availability critical: -1.0" in output
+            assert "    - performance warning: -1.0" in output
+            assert "    - performance critical: -1.0" in output
         finally:
             sys.stdout = saved_stdout
