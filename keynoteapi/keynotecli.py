@@ -17,15 +17,23 @@ class KeynoteCli(object):
         """List all available measurement slots and its data"""
         for measurement in self.kapi.get_measurement_slots():
             print("\n# '%s': " % measurement)
+
             print('  Availability data:')
             for timerange in self.kapi.get_avail_data(measurement):
-                print("    - %s:\t %s%%" % (
-                    timerange,
-                    self.kapi.get_avail_data(measurement)[timerange]
-                    ))
+                value = self.kapi.get_avail_data(measurement)[timerange]
+                # do not print a percent sign unless we have an actual value
+                print("    - %s:\t %s%s" % (timerange, value, "" if value in ["", "-"] else "%"))
+
             print('  Response times:')
             for timerange in self.kapi.get_perf_data(measurement):
-                print("    - %s:\t %ss" % (
-                    timerange,
-                    self.kapi.get_perf_data(measurement)[timerange]
-                    ))
+                value = self.kapi.get_perf_data(measurement)[timerange]
+                # do not print a unit symbol unless we have an actual value
+                print("    - %s:\t %s%s" % (timerange, value, "" if value in ["", "-"] else "s"))
+
+            thresholds = self.kapi.get_threshold_data(measurement)
+            if len(thresholds.keys()) > 0:
+                print('  Threshold data:')
+                print("    - availability warning: %s" % thresholds.get('availwarning', '-'))
+                print("    - availability critical: %s" % thresholds.get('availcritical', '-'))
+                print("    - performance warning: %s" % thresholds.get('perfwarning', '-'))
+                print("    - performance critical: %s" % thresholds.get('perfcritical', '-'))

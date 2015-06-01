@@ -38,7 +38,7 @@ class Keynote(nagiosplugin.Resource):
         _log.debug('time range: %s', timerange)
 
         availabilities = self.kapi.get_avail_data(self.measurement_slot)
-        avail_data = availabilities.get(timerange, None)
+        avail_data = availabilities.get(timerange)
         if avail_data is not None:
             try:
                 avail_data = float(avail_data)
@@ -64,7 +64,7 @@ class Keynote(nagiosplugin.Resource):
         _log.debug('time range: %s', timerange)
 
         performance_data = self.kapi.get_perf_data(self.measurement_slot)
-        perf_data = performance_data.get(timerange, None)
+        perf_data = performance_data.get(timerange)
         if perf_data is not None:
             try:
                 perf_data = float(perf_data)
@@ -147,27 +147,25 @@ class KeynoteSummary(nagiosplugin.Summary):
     def __init__(self, measurement_slot):
         self.measurement_slot = measurement_slot
 
+    def _status(self, results):
+        """General output"""
+        debug_out = [
+            "%i results for %s:" % (len(results), self.measurement_slot)
+        ]
+        for item in results:
+            debug_out.append("%s %s %s;" % (item.metric.name,
+                                            item.metric,
+                                            item.state))
+        _log.debug(" ".join(debug_out))
+        return self.measurement_slot
+
     def ok(self, results):
         """Output on OK state"""
-        _log.debug('results: %i in %s', len(results), results)
-
-        output = "%s: " % self.measurement_slot
-        for item in results:
-            output += "%s %s; " % (item.metric.name, item.metric)
-        _log.debug('RETURN:: %s', output)
-        return output
+        return self._status(results)
 
     def problem(self, results):
         """Output on problem states"""
-        _log.debug('results: %i in %s', len(results), results)
-
-        output = "%s: " % self.measurement_slot
-        for item in results:
-            output += "%s %s %s; " % (item.metric.name,
-                                      item.metric,
-                                      item.state)
-        _log.debug('RETURN:: %s', output)
-        return output
+        return self._status(results)
 
 
 @nagiosplugin.guarded
