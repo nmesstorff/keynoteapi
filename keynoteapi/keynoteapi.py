@@ -28,7 +28,7 @@ class KeynoteApi(object):
         if api_key is not None:
             self.api_key = api_key
         else:
-            self.api_key = os.getenv('KEYNOTE_API_KEY', None)
+            self.api_key = os.getenv('KEYNOTE_API_KEY')
 
         if self.api_key is None:
             print("Unknown Keynote API key. Set via environment variable \
@@ -98,7 +98,7 @@ class KeynoteApi(object):
             request_url = self.gen_api_url(api_cmd, self.api_key, 'json')
 
             if self.proxies is not None and \
-                    self.proxies.get('socks', None) is not None:
+                    self.proxies.get('socks') is not None:
 
                 try:
                     import requesocks
@@ -122,7 +122,7 @@ class KeynoteApi(object):
                     response = json.loads(resp.content)
             else:
                 if self.proxies is not None and \
-                        self.proxies.get('https', None) is not None:
+                        self.proxies.get('https') is not None:
 
                     proxy = request.ProxyHandler({
                         'https': self.proxies['https']
@@ -190,14 +190,20 @@ class KeynoteApi(object):
 
     def get_perf_data(self, measurement_slot):
         """ getter for perf_data, the response times of your measurements """
-        return self.get_data(measurement_slot, data_type='perf_data')
+        return self._get_data(measurement_slot, data_type='perf_data')
 
     def get_avail_data(self, measurement_slot):
         """ getter for avail_data, the availability of your measurements """
-        return self.get_data(measurement_slot, data_type='avail_data')
+        return self._get_data(measurement_slot, data_type='avail_data')
 
-    def get_data(self, measurement_slot, data_type=None):
-        """ getter for avail_data, perf_data """
+    def get_threshold_data(self, measurement_slot):
+        """ getter for threshold_data, pre-configured warning/critical
+            thresholds contained in response
+        """
+        return self._get_data(measurement_slot, data_type='threshold_data')
+
+    def _get_data(self, measurement_slot, data_type=None):
+        """ getter for avail_data, perf_data, threshold_data """
         data = {}
         if data_type is not None:
             for product in self.get_dashboarddata().get('product', []):

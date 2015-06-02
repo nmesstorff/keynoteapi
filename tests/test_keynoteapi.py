@@ -346,6 +346,20 @@ class KeynoteapiTest(unittest.TestCase):
         assert self.keyapi.get_perf_data('WPT_Ford')['last_24_hours'] == \
             '28.783'
 
+    def test_get_threshold_data(self):
+        """
+        test if get_threshold_data gets useful threshold data
+        """
+        self.keyapi.set_mockinput('tests/json/getdashboarddata_list.json')
+        assert self.keyapi.get_threshold_data('WPT_Ford')['availwarning'] == \
+            '-1.0'
+        assert self.keyapi.get_threshold_data('WPT_Ford')['availcritical'] == \
+            '-1.0'
+        assert self.keyapi.get_threshold_data('WPT_Ford')['perfwarning'] == \
+            '-1.0'
+        assert self.keyapi.get_threshold_data('WPT_Ford')['perfcritical'] == \
+            '-1.0'
+
     def test_get_perf_data_is_dict(self):
         """
         test if get_perfdata gets useful performance data
