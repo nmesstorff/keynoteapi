@@ -175,7 +175,9 @@ class KeynoteApi(object):
 
     def get_dashboarddata(self):
         """ getter for processed dashboarddata """
-        return self.get_api_response('getdashboarddata')
+        if self.dashboarddata is None:
+            self.dashboarddata = self.get_api_response('getdashboarddata')
+        return self.dashboarddata
 
     def get_measurement_slots(self):
         """
