@@ -219,41 +219,63 @@ def main():
                               'socks': args.socks_proxy}).list_measurements()
         sys.exit(0)
 
-    check = nagiosplugin.Check(
-        Keynote(api_key=args.apikey, measurement_slot=args.measurement_slot,
-                proxies={
-                    'https': args.https_proxy,
-                    'socks': args.socks_proxy
-                    }),
-        nagiosplugin.ScalarContext('availability_last_five_minute',
-                                   args.avail_warning, args.avail_critical),
-        nagiosplugin.ScalarContext('availability_last_fifteen_minute',
-                                   args.avail_warning, args.avail_critical),
-        nagiosplugin.ScalarContext('availability_last_one_hour',
-                                   args.avail_warning, args.avail_critical),
-        nagiosplugin.ScalarContext('availability_last_24_hours',
-                                   args.avail_warning, args.avail_critical),
-        nagiosplugin.ScalarContext('responsetime_last_five_minute',
-                                   args.response_warning,
-                                   args.response_critical),
-        nagiosplugin.ScalarContext('responsetime_last_fifteen_minute',
-                                   args.response_warning,
-                                   args.response_critical),
-        nagiosplugin.ScalarContext('responsetime_last_one_hour',
-                                   args.response_warning,
-                                   args.response_critical),
-        nagiosplugin.ScalarContext('responsetime_last_24_hours',
-                                   args.response_warning,
-                                   args.response_critical),
-        nagiosplugin.ScalarContext('remaining_api_calls_hour',
-                                   args.apicalls_hour_warning,
-                                   args.apicalls_hour_critical),
-        nagiosplugin.ScalarContext('remaining_api_calls_day',
-                                   args.apicalls_day_warning,
-                                   args.apicalls_day_critical),
-        nagiosplugin.ScalarContext('script_runtime', ':10'),
-        KeynoteSummary(args.measurement_slot)
-        )
+    keynote = Keynote(api_key=args.apikey,
+                      measurement_slot=args.measurement_slot,
+                      proxies={
+                          'https': args.https_proxy,
+                          'socks': args.socks_proxy
+                      })
+
+    # get threshold data from remote API
+    # (not a gratuitous call because response data are cached afterwards)
+    threshold_data = keynote.kapi.get_threshold_data(args.measurement_slot)
+    _log.debug("Remote threshold data: %s %s %s %s" %
+               (threshold_data.get("availwarning"),
+                threshold_data.get("availcritical"),
+                threshold_data.get("perfwarning"),
+                threshold_data.get("perfcritical")))
+    _log.debug("Local threshold data: %s %s %s %s" % (args.avail_warning,
+                                                      args.avail_critical,
+                                                      args.response_warning,
+                                                      args.response_critical))
+
+    # TODO decide which threshold data to use, i.e.
+    # either the ones provided by the API response
+    # or the ones provided via CLI args.
+    # then assign the desired values to avail_* and perf_*
+    avail_warn = args.avail_warning
+    avail_crit = args.avail_critical
+    perf_warn = args.response_warning
+    perf_crit = args.response_critical
+
+    check = nagiosplugin.Check(keynote)
+    check.add(nagiosplugin.ScalarContext('availability_last_five_minute',
+                                         avail_warn, avail_crit),
+              nagiosplugin.ScalarContext('availability_last_five_minute',
+                                         avail_warn, avail_crit),
+              nagiosplugin.ScalarContext('availability_last_fifteen_minute',
+                                         avail_warn, avail_crit),
+              nagiosplugin.ScalarContext('availability_last_one_hour',
+                                         avail_warn, avail_crit),
+              nagiosplugin.ScalarContext('availability_last_24_hours',
+                                         avail_warn, avail_crit),
+              nagiosplugin.ScalarContext('responsetime_last_five_minute',
+                                         perf_warn, perf_crit),
+              nagiosplugin.ScalarContext('responsetime_last_fifteen_minute',
+                                         perf_warn, perf_crit),
+              nagiosplugin.ScalarContext('responsetime_last_one_hour',
+                                         perf_warn, perf_crit),
+              nagiosplugin.ScalarContext('responsetime_last_24_hours',
+                                         perf_warn, perf_crit),
+              nagiosplugin.ScalarContext('remaining_api_calls_hour',
+                                         args.apicalls_hour_warning,
+                                         args.apicalls_hour_critical),
+              nagiosplugin.ScalarContext('remaining_api_calls_day',
+                                         args.apicalls_day_warning,
+                                         args.apicalls_day_critical),
+              nagiosplugin.ScalarContext('script_runtime', ':10'),
+              KeynoteSummary(args.measurement_slot))
+
     check.main(verbose=args.verbose, timeout=args.timeout)
 
 
