@@ -213,6 +213,18 @@ class KeynoteapiTest(unittest.TestCase):
         assert ret == 'https://api.keynote.com/keynote/api/test-api-cmd?api_key\
 =test-api-key&format=json'
 
+    def test_gen_api_url_json_additional_parameters(self):
+        """
+        test if we generate a valid URL for keynote access from gen_api_url()
+        and get a url with format=json with additional get parameters
+        """
+        ret = self.keyapi.gen_api_url(api_cmd='test-api-cmd',
+                                      api_key=self.keyapi.api_key,
+                                      api_format='json',
+                                      additional_parameters={'aa': 'bb', 'cc': 100})
+        assert ret == 'https://api.keynote.com/keynote/api/test-api-cmd?api_key\
+=test-api-key&format=json&aa=bb&cc=100'
+
     def test_gen_api_url_xml_format(self):
         """
         test if we generate a valid URL for keynote access from gen_api_url()
@@ -308,6 +320,32 @@ class KeynoteapiTest(unittest.TestCase):
         """
         self.keyapi.set_mockinput('tests/json/getdashboarddata_list.json')
         assert len(self.keyapi.get_dashboarddata()) == 3
+
+    def test_get_graphdata_scatter_eq_data(self):
+        """
+        test if the getter of graphdata (mode = scatter) is working and returns
+        valid data
+        """
+        self.keyapi.\
+            set_mockinput('tests/json/getgraphdata_scatter_baseonly.json')
+        response = self.keyapi.read_json_response_file(
+            'tests/json/getgraphdata_scatter_baseonly.json', False)
+        assert len(response) > 0
+        assert self.keyapi.get_graphdata_scatter(measurement_slot="1234567") \
+            is not None
+
+    def test_get_graphdata_scatter_one_page(self):
+        """
+        test if the getter of graphdata returns data for one page
+        """
+        self.keyapi.\
+            set_mockinput('tests/json/getgraphdata_scatter_baseonly.json')
+        response = self.keyapi.read_json_response_file(
+            'tests/json/getgraphdata_scatter_baseonly.json', False)
+        assert len(response) > 0
+        assert self.keyapi.get_graphdata_scatter(measurement_slot="1234567",
+                                                 transpagelist=1) \
+            is not None
 
     def test_get_measurement_slots_eq_data(self):
         """

@@ -1,0 +1,2214 @@
+[
+	[
+		{
+			"agent_id": 40289,
+			"agent_instance_id": 48103,
+			"datetime": "2016-JUN-20 03:48:21",
+			"profile_id": "0",
+			"slot_id": 1120213,
+			"target_id": 3095925,
+			"txnPages": [
+				{
+					"page_seq": 1,
+					"txnPageDetails": {
+						"page": 1,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "97",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "338",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "39015",
+									"object_text": "/",
+									"request_bytes": "338"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "40",
+								"first_packet_delta": "19",
+								"remain_packets_delta": "3",
+								"request_delta": "1",
+								"ssl_handshake_delta": "",
+								"start_msec": "22",
+								"system_delta": "17"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "43",
+						"page_bytes": "1076944",
+						"redir_count": "1",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "1080.18",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "25",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "997",
+						"delta_user_msec": "1728",
+						"dns_lookup_msec": "7",
+						"dom_complete_msec": "1728",
+						"dom_content_load_time": "0",
+						"dom_interactive_msec": "1172",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "23",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "4",
+						"first_packet_delta": "19",
+						"first_paint_msec": "280",
+						"full_page_resp_byte": "1076944",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "3",
+						"request_delta": "1",
+						"ssl_handshake_delta": "",
+						"start_msec": "0",
+						"system_delta": "17",
+						"time_to_interactive_page": "1728",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				},
+				{
+					"page_seq": 2,
+					"txnPageDetails": {
+						"page": 2,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "7657",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "941",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "39195",
+									"object_text": "/b2c/produkt-a.html",
+									"request_bytes": "941"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "28",
+								"first_packet_delta": "7",
+								"remain_packets_delta": "2",
+								"request_delta": "1",
+								"ssl_handshake_delta": "",
+								"start_msec": "0",
+								"system_delta": "18"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "8",
+						"page_bytes": "225708",
+						"redir_count": "",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "1623.8",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "139",
+						"delta_user_msec": "484",
+						"dns_lookup_msec": "",
+						"dom_complete_msec": "497",
+						"dom_content_load_time": "1",
+						"dom_interactive_msec": "342",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "2",
+						"first_packet_delta": "7",
+						"first_paint_msec": "393",
+						"full_page_resp_byte": "225708",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "2",
+						"request_delta": "1",
+						"ssl_handshake_delta": "",
+						"start_msec": "5257",
+						"system_delta": "18",
+						"time_to_interactive_page": "498",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				}
+			],
+			"txn_dialer": {
+				"attempts": "",
+				"phone_number": "",
+				"setup_msec": "",
+				"speed": ""
+			},
+			"txn_error": null,
+			"txn_summary": {
+				"bandwidth_kbsec": "1146.7",
+				"browser_errors": "",
+				"connection_count": "25",
+				"content_errors": "0",
+				"cookie_count": "",
+				"delta_msec": "1136",
+				"delta_user_msec": "2212",
+				"domain_count": "23",
+				"element_count": "51",
+				"estimated_cache_delta_msec": "0",
+				"resp_bytes": "1302652",
+				"trans_level_comp_msec": "0"
+			}
+		},
+		{
+			"agent_id": 40287,
+			"agent_instance_id": 84170,
+			"datetime": "2016-JUN-20 03:49:47",
+			"profile_id": "0",
+			"slot_id": 1120213,
+			"target_id": 3095925,
+			"txnPages": [
+				{
+					"page_seq": 1,
+					"txnPageDetails": {
+						"page": 1,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "97",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "338",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "48045",
+									"object_text": "/",
+									"request_bytes": "338"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "23",
+								"first_packet_delta": "10",
+								"remain_packets_delta": "2",
+								"request_delta": "0",
+								"ssl_handshake_delta": "",
+								"start_msec": "2",
+								"system_delta": "11"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "43",
+						"page_bytes": "1076945",
+						"redir_count": "1",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "1067.34",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "27",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "1009",
+						"delta_user_msec": "1832",
+						"dns_lookup_msec": "6",
+						"dom_complete_msec": "1834",
+						"dom_content_load_time": "1",
+						"dom_interactive_msec": "957",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "26",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "5",
+						"first_packet_delta": "10",
+						"first_paint_msec": "285",
+						"full_page_resp_byte": "1076945",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "2",
+						"request_delta": "0",
+						"ssl_handshake_delta": "",
+						"start_msec": "0",
+						"system_delta": "11",
+						"time_to_interactive_page": "1834",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				},
+				{
+					"page_seq": 2,
+					"txnPageDetails": {
+						"page": 2,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "7657",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "941",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "48139",
+									"object_text": "/b2c/produkt-a.html",
+									"request_bytes": "941"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "34",
+								"first_packet_delta": "9",
+								"remain_packets_delta": "2",
+								"request_delta": "0",
+								"ssl_handshake_delta": "",
+								"start_msec": "0",
+								"system_delta": "23"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "8",
+						"page_bytes": "225709",
+						"redir_count": "",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "878.25",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "257",
+						"delta_user_msec": "553",
+						"dns_lookup_msec": "",
+						"dom_complete_msec": "555",
+						"dom_content_load_time": "0",
+						"dom_interactive_msec": "346",
+						"dom_load_time": "1",
+						"dom_unload_time": "0",
+						"domain_count": "",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "5",
+						"first_packet_delta": "9",
+						"first_paint_msec": "664",
+						"full_page_resp_byte": "225709",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "2",
+						"request_delta": "0",
+						"ssl_handshake_delta": "",
+						"start_msec": "5363",
+						"system_delta": "23",
+						"time_to_interactive_page": "556",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				}
+			],
+			"txn_dialer": {
+				"attempts": "",
+				"phone_number": "",
+				"setup_msec": "",
+				"speed": ""
+			},
+			"txn_error": null,
+			"txn_summary": {
+				"bandwidth_kbsec": "1028.95",
+				"browser_errors": "",
+				"connection_count": "27",
+				"content_errors": "0",
+				"cookie_count": "",
+				"delta_msec": "1266",
+				"delta_user_msec": "2385",
+				"domain_count": "26",
+				"element_count": "51",
+				"estimated_cache_delta_msec": "0",
+				"resp_bytes": "1302654",
+				"trans_level_comp_msec": "0"
+			}
+		},
+		{
+			"agent_id": 45537,
+			"agent_instance_id": 48302,
+			"datetime": "2016-JUN-20 03:50:51",
+			"profile_id": "0",
+			"slot_id": 1120213,
+			"target_id": 3095925,
+			"txnPages": [
+				{
+					"page_seq": 1,
+					"txnPageDetails": {
+						"page": 1,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "97",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "338",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "46891",
+									"object_text": "/",
+									"request_bytes": "338"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "23",
+								"first_packet_delta": "12",
+								"remain_packets_delta": "1",
+								"request_delta": "0",
+								"ssl_handshake_delta": "",
+								"start_msec": "2",
+								"system_delta": "10"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "43",
+						"page_bytes": "1076943",
+						"redir_count": "1",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "1049.65",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "26",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "1026",
+						"delta_user_msec": "1870",
+						"dns_lookup_msec": "15",
+						"dom_complete_msec": "1869",
+						"dom_content_load_time": "0",
+						"dom_interactive_msec": "916",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "27",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "4",
+						"first_packet_delta": "12",
+						"first_paint_msec": "268",
+						"full_page_resp_byte": "1076943",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "1",
+						"request_delta": "0",
+						"ssl_handshake_delta": "",
+						"start_msec": "0",
+						"system_delta": "10",
+						"time_to_interactive_page": "1869",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				},
+				{
+					"page_seq": 2,
+					"txnPageDetails": {
+						"page": 2,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "7657",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "941",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "46989",
+									"object_text": "/b2c/produkt-a.html",
+									"request_bytes": "941"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "25",
+								"first_packet_delta": "6",
+								"remain_packets_delta": "3",
+								"request_delta": "1",
+								"ssl_handshake_delta": "",
+								"start_msec": "0",
+								"system_delta": "15"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "8",
+						"page_bytes": "225709",
+						"redir_count": "",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "985.63",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "229",
+						"delta_user_msec": "531",
+						"dns_lookup_msec": "",
+						"dom_complete_msec": "532",
+						"dom_content_load_time": "1",
+						"dom_interactive_msec": "322",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "5",
+						"first_packet_delta": "6",
+						"first_paint_msec": "377",
+						"full_page_resp_byte": "225709",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "3",
+						"request_delta": "1",
+						"ssl_handshake_delta": "",
+						"start_msec": "5266",
+						"system_delta": "15",
+						"time_to_interactive_page": "533",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				}
+			],
+			"txn_dialer": {
+				"attempts": "",
+				"phone_number": "",
+				"setup_msec": "",
+				"speed": ""
+			},
+			"txn_error": null,
+			"txn_summary": {
+				"bandwidth_kbsec": "1037.97",
+				"browser_errors": "",
+				"connection_count": "26",
+				"content_errors": "0",
+				"cookie_count": "",
+				"delta_msec": "1255",
+				"delta_user_msec": "2401",
+				"domain_count": "27",
+				"element_count": "51",
+				"estimated_cache_delta_msec": "0",
+				"resp_bytes": "1302652",
+				"trans_level_comp_msec": "0"
+			}
+		},
+		{
+			"agent_id": 40289,
+			"agent_instance_id": 48103,
+			"datetime": "2016-JUN-20 04:03:23",
+			"profile_id": "0",
+			"slot_id": 1120213,
+			"target_id": 3095925,
+			"txnPages": [
+				{
+					"page_seq": 1,
+					"txnPageDetails": {
+						"page": 1,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "97",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "338",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "12253",
+									"object_text": "/",
+									"request_bytes": "338"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "28",
+								"first_packet_delta": "14",
+								"remain_packets_delta": "2",
+								"request_delta": "0",
+								"ssl_handshake_delta": "",
+								"start_msec": "16",
+								"system_delta": "12"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "43",
+						"page_bytes": "1076944",
+						"redir_count": "1",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "906.52",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "26",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "1188",
+						"delta_user_msec": "2095",
+						"dns_lookup_msec": "10",
+						"dom_complete_msec": "2096",
+						"dom_content_load_time": "1",
+						"dom_interactive_msec": "1067",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "26",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "1",
+						"first_packet_delta": "14",
+						"first_paint_msec": "267",
+						"full_page_resp_byte": "1076944",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "2",
+						"request_delta": "0",
+						"ssl_handshake_delta": "",
+						"start_msec": "0",
+						"system_delta": "12",
+						"time_to_interactive_page": "2096",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				},
+				{
+					"page_seq": 2,
+					"txnPageDetails": {
+						"page": 2,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "7657",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "942",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "12339",
+									"object_text": "/b2c/produkt-a.html",
+									"request_bytes": "942"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "40",
+								"first_packet_delta": "13",
+								"remain_packets_delta": "2",
+								"request_delta": "1",
+								"ssl_handshake_delta": "",
+								"start_msec": "0",
+								"system_delta": "24"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "8",
+						"page_bytes": "225707",
+						"redir_count": "",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "972.88",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "232",
+						"delta_user_msec": "608",
+						"dns_lookup_msec": "",
+						"dom_complete_msec": "612",
+						"dom_content_load_time": "0",
+						"dom_interactive_msec": "380",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "12",
+						"first_packet_delta": "13",
+						"first_paint_msec": "439",
+						"full_page_resp_byte": "225707",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "2",
+						"request_delta": "1",
+						"ssl_handshake_delta": "",
+						"start_msec": "5606",
+						"system_delta": "24",
+						"time_to_interactive_page": "613",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				}
+			],
+			"txn_dialer": {
+				"attempts": "",
+				"phone_number": "",
+				"setup_msec": "",
+				"speed": ""
+			},
+			"txn_error": null,
+			"txn_summary": {
+				"bandwidth_kbsec": "917.36",
+				"browser_errors": "",
+				"connection_count": "26",
+				"content_errors": "0",
+				"cookie_count": "",
+				"delta_msec": "1420",
+				"delta_user_msec": "2703",
+				"domain_count": "26",
+				"element_count": "51",
+				"estimated_cache_delta_msec": "0",
+				"resp_bytes": "1302651",
+				"trans_level_comp_msec": "0"
+			}
+		},
+		{
+			"agent_id": 40287,
+			"agent_instance_id": 84170,
+			"datetime": "2016-JUN-20 04:04:45",
+			"profile_id": "0",
+			"slot_id": 1120213,
+			"target_id": 3095925,
+			"txnPages": [
+				{
+					"page_seq": 1,
+					"txnPageDetails": {
+						"page": 1,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "97",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "338",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "64058",
+									"object_text": "/",
+									"request_bytes": "338"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "22",
+								"first_packet_delta": "9",
+								"remain_packets_delta": "1",
+								"request_delta": "0",
+								"ssl_handshake_delta": "",
+								"start_msec": "12",
+								"system_delta": "12"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "43",
+						"page_bytes": "1076943",
+						"redir_count": "1",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "1565.32",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "27",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "688",
+						"delta_user_msec": "1576",
+						"dns_lookup_msec": "4",
+						"dom_complete_msec": "1578",
+						"dom_content_load_time": "1",
+						"dom_interactive_msec": "952",
+						"dom_load_time": "1",
+						"dom_unload_time": "0",
+						"domain_count": "27",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "6",
+						"first_packet_delta": "9",
+						"first_paint_msec": "283",
+						"full_page_resp_byte": "1076943",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "1",
+						"request_delta": "0",
+						"ssl_handshake_delta": "",
+						"start_msec": "0",
+						"system_delta": "12",
+						"time_to_interactive_page": "1579",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				},
+				{
+					"page_seq": 2,
+					"txnPageDetails": {
+						"page": 2,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "7657",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "941",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "64202",
+									"object_text": "/b2c/produkt-a.html",
+									"request_bytes": "941"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "33",
+								"first_packet_delta": "8",
+								"remain_packets_delta": "3",
+								"request_delta": "0",
+								"ssl_handshake_delta": "",
+								"start_msec": "0",
+								"system_delta": "22"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "8",
+						"page_bytes": "225707",
+						"redir_count": "",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "654.22",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "345",
+						"delta_user_msec": "723",
+						"dns_lookup_msec": "",
+						"dom_complete_msec": "725",
+						"dom_content_load_time": "1",
+						"dom_interactive_msec": "351",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "8",
+						"first_packet_delta": "8",
+						"first_paint_msec": "846",
+						"full_page_resp_byte": "225707",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "3",
+						"request_delta": "0",
+						"ssl_handshake_delta": "",
+						"start_msec": "5044",
+						"system_delta": "22",
+						"time_to_interactive_page": "725",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				}
+			],
+			"txn_dialer": {
+				"attempts": "",
+				"phone_number": "",
+				"setup_msec": "",
+				"speed": ""
+			},
+			"txn_error": null,
+			"txn_summary": {
+				"bandwidth_kbsec": "1261.04",
+				"browser_errors": "",
+				"connection_count": "27",
+				"content_errors": "0",
+				"cookie_count": "",
+				"delta_msec": "1033",
+				"delta_user_msec": "2299",
+				"domain_count": "27",
+				"element_count": "51",
+				"estimated_cache_delta_msec": "0",
+				"resp_bytes": "1302650",
+				"trans_level_comp_msec": "0"
+			}
+		},
+		{
+			"agent_id": 45537,
+			"agent_instance_id": 48302,
+			"datetime": "2016-JUN-20 04:05:51",
+			"profile_id": "0",
+			"slot_id": 1120213,
+			"target_id": 3095925,
+			"txnPages": [
+				{
+					"page_seq": 1,
+					"txnPageDetails": {
+						"page": 1,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "97",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "338",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "24645",
+									"object_text": "/",
+									"request_bytes": "338"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "20",
+								"first_packet_delta": "7",
+								"remain_packets_delta": "2",
+								"request_delta": "0",
+								"ssl_handshake_delta": "",
+								"start_msec": "22",
+								"system_delta": "11"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "43",
+						"page_bytes": "1076944",
+						"redir_count": "1",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "1047.61",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "26",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "1028",
+						"delta_user_msec": "1770",
+						"dns_lookup_msec": "16",
+						"dom_complete_msec": "1770",
+						"dom_content_load_time": "1",
+						"dom_interactive_msec": "892",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "27",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "1",
+						"first_packet_delta": "7",
+						"first_paint_msec": "262",
+						"full_page_resp_byte": "1076944",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "2",
+						"request_delta": "0",
+						"ssl_handshake_delta": "",
+						"start_msec": "0",
+						"system_delta": "11",
+						"time_to_interactive_page": "1770",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				},
+				{
+					"page_seq": 2,
+					"txnPageDetails": {
+						"page": 2,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "7657",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "940",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "24698",
+									"object_text": "/b2c/produkt-a.html",
+									"request_bytes": "940"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "319",
+								"first_packet_delta": "8",
+								"remain_packets_delta": "2",
+								"request_delta": "1",
+								"ssl_handshake_delta": "",
+								"start_msec": "0",
+								"system_delta": "308"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "8",
+						"page_bytes": "225709",
+						"redir_count": "",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "936.55",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "241",
+						"delta_user_msec": "811",
+						"dns_lookup_msec": "",
+						"dom_complete_msec": "812",
+						"dom_content_load_time": "0",
+						"dom_interactive_msec": "608",
+						"dom_load_time": "0",
+						"dom_unload_time": "1",
+						"domain_count": "",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "5",
+						"first_packet_delta": "8",
+						"first_paint_msec": "654",
+						"full_page_resp_byte": "225709",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "2",
+						"request_delta": "1",
+						"ssl_handshake_delta": "",
+						"start_msec": "5931",
+						"system_delta": "308",
+						"time_to_interactive_page": "813",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				}
+			],
+			"txn_dialer": {
+				"attempts": "",
+				"phone_number": "",
+				"setup_msec": "",
+				"speed": ""
+			},
+			"txn_error": null,
+			"txn_summary": {
+				"bandwidth_kbsec": "1026.52",
+				"browser_errors": "",
+				"connection_count": "26",
+				"content_errors": "0",
+				"cookie_count": "",
+				"delta_msec": "1269",
+				"delta_user_msec": "2581",
+				"domain_count": "27",
+				"element_count": "51",
+				"estimated_cache_delta_msec": "0",
+				"resp_bytes": "1302653",
+				"trans_level_comp_msec": "0"
+			}
+		},
+		{
+			"agent_id": 40289,
+			"agent_instance_id": 48103,
+			"datetime": "2016-JUN-20 04:17:47",
+			"profile_id": "0",
+			"slot_id": 1120213,
+			"target_id": 3095925,
+			"txnPages": [
+				{
+					"page_seq": 1,
+					"txnPageDetails": {
+						"page": 1,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "97",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "338",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "32591",
+									"object_text": "/",
+									"request_bytes": "338"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "29",
+								"first_packet_delta": "11",
+								"remain_packets_delta": "2",
+								"request_delta": "1",
+								"ssl_handshake_delta": "",
+								"start_msec": "27",
+								"system_delta": "15"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "43",
+						"page_bytes": "1076944",
+						"redir_count": "1",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "1064.17",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "27",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "1012",
+						"delta_user_msec": "1726",
+						"dns_lookup_msec": "6",
+						"dom_complete_msec": "1733",
+						"dom_content_load_time": "1",
+						"dom_interactive_msec": "1109",
+						"dom_load_time": "0",
+						"dom_unload_time": "1",
+						"domain_count": "27",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "1",
+						"first_packet_delta": "11",
+						"first_paint_msec": "1848",
+						"full_page_resp_byte": "1076944",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "2",
+						"request_delta": "1",
+						"ssl_handshake_delta": "",
+						"start_msec": "0",
+						"system_delta": "15",
+						"time_to_interactive_page": "1734",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				},
+				{
+					"page_seq": 2,
+					"txnPageDetails": {
+						"page": 2,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "7657",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "941",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "20731",
+									"object_text": "/b2c/produkt-a.html",
+									"request_bytes": "941"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "33",
+								"first_packet_delta": "10",
+								"remain_packets_delta": "4",
+								"request_delta": "1",
+								"ssl_handshake_delta": "",
+								"start_msec": "0",
+								"system_delta": "18"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "8",
+						"page_bytes": "225707",
+						"redir_count": "",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "1437.62",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "157",
+						"delta_user_msec": "516",
+						"dns_lookup_msec": "",
+						"dom_complete_msec": "518",
+						"dom_content_load_time": "1",
+						"dom_interactive_msec": "347",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "5",
+						"first_packet_delta": "10",
+						"first_paint_msec": "398",
+						"full_page_resp_byte": "225707",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "4",
+						"request_delta": "1",
+						"ssl_handshake_delta": "",
+						"start_msec": "5239",
+						"system_delta": "18",
+						"time_to_interactive_page": "518",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				}
+			],
+			"txn_dialer": {
+				"attempts": "",
+				"phone_number": "",
+				"setup_msec": "",
+				"speed": ""
+			},
+			"txn_error": null,
+			"txn_summary": {
+				"bandwidth_kbsec": "1114.33",
+				"browser_errors": "",
+				"connection_count": "27",
+				"content_errors": "0",
+				"cookie_count": "",
+				"delta_msec": "1169",
+				"delta_user_msec": "2242",
+				"domain_count": "27",
+				"element_count": "51",
+				"estimated_cache_delta_msec": "0",
+				"resp_bytes": "1302651",
+				"trans_level_comp_msec": "0"
+			}
+		},
+		{
+			"agent_id": 40287,
+			"agent_instance_id": 84170,
+			"datetime": "2016-JUN-20 04:19:47",
+			"profile_id": "0",
+			"slot_id": 1120213,
+			"target_id": 3095925,
+			"txnPages": [
+				{
+					"page_seq": 1,
+					"txnPageDetails": {
+						"page": 1,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "97",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "338",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "56494",
+									"object_text": "/",
+									"request_bytes": "338"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "22",
+								"first_packet_delta": "9",
+								"remain_packets_delta": "1",
+								"request_delta": "0",
+								"ssl_handshake_delta": "",
+								"start_msec": "1",
+								"system_delta": "12"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "43",
+						"page_bytes": "1076946",
+						"redir_count": "1",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "1113.7",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "28",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "967",
+						"delta_user_msec": "1761",
+						"dns_lookup_msec": "5",
+						"dom_complete_msec": "1760",
+						"dom_content_load_time": "1",
+						"dom_interactive_msec": "891",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "28",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "7",
+						"first_packet_delta": "9",
+						"first_paint_msec": "286",
+						"full_page_resp_byte": "1076946",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "1",
+						"request_delta": "0",
+						"ssl_handshake_delta": "",
+						"start_msec": "0",
+						"system_delta": "12",
+						"time_to_interactive_page": "1761",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				},
+				{
+					"page_seq": 2,
+					"txnPageDetails": {
+						"page": 2,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "7657",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "941",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "56595",
+									"object_text": "/b2c/produkt-a.html",
+									"request_bytes": "941"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "31",
+								"first_packet_delta": "7",
+								"remain_packets_delta": "3",
+								"request_delta": "1",
+								"ssl_handshake_delta": "",
+								"start_msec": "0",
+								"system_delta": "20"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "8",
+						"page_bytes": "225707",
+						"redir_count": "",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "910.11",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "248",
+						"delta_user_msec": "560",
+						"dns_lookup_msec": "",
+						"dom_complete_msec": "563",
+						"dom_content_load_time": "0",
+						"dom_interactive_msec": "351",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "7",
+						"first_packet_delta": "7",
+						"first_paint_msec": "681",
+						"full_page_resp_byte": "225707",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "3",
+						"request_delta": "1",
+						"ssl_handshake_delta": "",
+						"start_msec": "5280",
+						"system_delta": "20",
+						"time_to_interactive_page": "563",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				}
+			],
+			"txn_dialer": {
+				"attempts": "",
+				"phone_number": "",
+				"setup_msec": "",
+				"speed": ""
+			},
+			"txn_error": null,
+			"txn_summary": {
+				"bandwidth_kbsec": "1072.14",
+				"browser_errors": "",
+				"connection_count": "28",
+				"content_errors": "0",
+				"cookie_count": "",
+				"delta_msec": "1215",
+				"delta_user_msec": "2321",
+				"domain_count": "28",
+				"element_count": "51",
+				"estimated_cache_delta_msec": "0",
+				"resp_bytes": "1302653",
+				"trans_level_comp_msec": "0"
+			}
+		},
+		{
+			"agent_id": 45537,
+			"agent_instance_id": 48302,
+			"datetime": "2016-JUN-20 04:20:50",
+			"profile_id": "0",
+			"slot_id": 1120213,
+			"target_id": 3095925,
+			"txnPages": [
+				{
+					"page_seq": 1,
+					"txnPageDetails": {
+						"page": 1,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "97",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "338",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "34852",
+									"object_text": "/",
+									"request_bytes": "338"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "17",
+								"first_packet_delta": "6",
+								"remain_packets_delta": "1",
+								"request_delta": "0",
+								"ssl_handshake_delta": "",
+								"start_msec": "6",
+								"system_delta": "10"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "43",
+						"page_bytes": "1076943",
+						"redir_count": "1",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "1075.87",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "25",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "1001",
+						"delta_user_msec": "2394",
+						"dns_lookup_msec": "3",
+						"dom_complete_msec": "2384",
+						"dom_content_load_time": "1",
+						"dom_interactive_msec": "1097",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "25",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "1",
+						"first_packet_delta": "6",
+						"first_paint_msec": "439",
+						"full_page_resp_byte": "1076943",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "1",
+						"request_delta": "0",
+						"ssl_handshake_delta": "",
+						"start_msec": "0",
+						"system_delta": "10",
+						"time_to_interactive_page": "2384",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				},
+				{
+					"page_seq": 2,
+					"txnPageDetails": {
+						"page": 2,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "7657",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "941",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "34949",
+									"object_text": "/b2c/produkt-a.html",
+									"request_bytes": "941"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "32",
+								"first_packet_delta": "6",
+								"remain_packets_delta": "2",
+								"request_delta": "1",
+								"ssl_handshake_delta": "",
+								"start_msec": "0",
+								"system_delta": "23"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "8",
+						"page_bytes": "225709",
+						"redir_count": "",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "981.34",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "230",
+						"delta_user_msec": "531",
+						"dns_lookup_msec": "",
+						"dom_complete_msec": "532",
+						"dom_content_load_time": "0",
+						"dom_interactive_msec": "322",
+						"dom_load_time": "1",
+						"dom_unload_time": "0",
+						"domain_count": "",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "4",
+						"first_packet_delta": "6",
+						"first_paint_msec": "376",
+						"full_page_resp_byte": "225709",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "2",
+						"request_delta": "1",
+						"ssl_handshake_delta": "",
+						"start_msec": "6276",
+						"system_delta": "23",
+						"time_to_interactive_page": "533",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				}
+			],
+			"txn_dialer": {
+				"attempts": "",
+				"phone_number": "",
+				"setup_msec": "",
+				"speed": ""
+			},
+			"txn_error": null,
+			"txn_summary": {
+				"bandwidth_kbsec": "1058.21",
+				"browser_errors": "",
+				"connection_count": "25",
+				"content_errors": "0",
+				"cookie_count": "",
+				"delta_msec": "1231",
+				"delta_user_msec": "2925",
+				"domain_count": "25",
+				"element_count": "51",
+				"estimated_cache_delta_msec": "0",
+				"resp_bytes": "1302652",
+				"trans_level_comp_msec": "0"
+			}
+		},
+		{
+			"agent_id": 40289,
+			"agent_instance_id": 48103,
+			"datetime": "2016-JUN-20 04:32:47",
+			"profile_id": "0",
+			"slot_id": 1120213,
+			"target_id": 3095925,
+			"txnPages": [
+				{
+					"page_seq": 1,
+					"txnPageDetails": {
+						"page": 1,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "97",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "338",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "40883",
+									"object_text": "/",
+									"request_bytes": "338"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "63",
+								"first_packet_delta": "11",
+								"remain_packets_delta": "2",
+								"request_delta": "0",
+								"ssl_handshake_delta": "",
+								"start_msec": "24",
+								"system_delta": "50"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "43",
+						"page_bytes": "1076945",
+						"redir_count": "1",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "1201.95",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "25",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "896",
+						"delta_user_msec": "1691",
+						"dns_lookup_msec": "5",
+						"dom_complete_msec": "1693",
+						"dom_content_load_time": "0",
+						"dom_interactive_msec": "1089",
+						"dom_load_time": "0",
+						"dom_unload_time": "0",
+						"domain_count": "27",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "1",
+						"first_packet_delta": "11",
+						"first_paint_msec": "1810",
+						"full_page_resp_byte": "1076945",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "2",
+						"request_delta": "0",
+						"ssl_handshake_delta": "",
+						"start_msec": "0",
+						"system_delta": "50",
+						"time_to_interactive_page": "1693",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				},
+				{
+					"page_seq": 2,
+					"txnPageDetails": {
+						"page": 2,
+						"txnBasePage": {
+							"record_seq": 1,
+							"txnDetailObject": [
+								{
+									"conn_string_text": "https://www.acme.com",
+									"content_bytes": "7657",
+									"content_type": "text/html",
+									"custom_object_trend": "NA",
+									"element_cached": "1",
+									"header_bytes": "941",
+									"header_code": "",
+									"ip_address": "91.223.114.18",
+									"msmt_conn_id": "55285",
+									"object_text": "/b2c/produkt-a.html",
+									"request_bytes": "941"
+								}
+							],
+							"txnDetailPerformance": {
+								"connect_delta": "",
+								"detail_component_1_msec": "",
+								"detail_component_2_msec": "",
+								"detail_component_3_msec": "",
+								"dns_delta": "",
+								"element_delta": "40",
+								"first_packet_delta": "13",
+								"remain_packets_delta": "2",
+								"request_delta": "1",
+								"ssl_handshake_delta": "",
+								"start_msec": "0",
+								"system_delta": "24"
+							},
+							"txnDetailStatus": {
+								"error_code": "",
+								"status_code": "200"
+							}
+						},
+						"txnDetailError": [
+
+						],
+						"txnPageElement": [
+
+						],
+						"txnRedirect": [
+
+						]
+					},
+					"txnPageObject": {
+						"element_count": "8",
+						"page_bytes": "225708",
+						"redir_count": "",
+						"redir_delta": ""
+					},
+					"txnPagePerformance": {
+						"bandwidth_kbsec": "1240.15",
+						"browser_errors": "",
+						"connect_delta": "",
+						"connection_count": "",
+						"cookie_count": "",
+						"custom_component_1_msec": "",
+						"custom_component_2_msec": "",
+						"custom_component_3_msec": "",
+						"delta_msec": "182",
+						"delta_user_msec": "650",
+						"dns_lookup_msec": "",
+						"dom_complete_msec": "652",
+						"dom_content_load_time": "1",
+						"dom_interactive_msec": "435",
+						"dom_load_time": "0",
+						"dom_unload_time": "1",
+						"domain_count": "",
+						"element_delta": "-1",
+						"estimated_cache_delta_msec": "0",
+						"first_byte_msec": "6",
+						"first_packet_delta": "13",
+						"first_paint_msec": "865",
+						"full_page_resp_byte": "225708",
+						"full_screen_msec": "",
+						"redir_delta": "",
+						"remain_packets_delta": "2",
+						"request_delta": "1",
+						"ssl_handshake_delta": "",
+						"start_msec": "5207",
+						"system_delta": "24",
+						"time_to_interactive_page": "653",
+						"trans_level_msec": "-1"
+					},
+					"txnPageStatus": {
+						"content_errors": "0",
+						"error_code": ""
+					}
+				}
+			],
+			"txn_dialer": {
+				"attempts": "",
+				"phone_number": "",
+				"setup_msec": "",
+				"speed": ""
+			},
+			"txn_error": null,
+			"txn_summary": {
+				"bandwidth_kbsec": "1208.4",
+				"browser_errors": "",
+				"connection_count": "25",
+				"content_errors": "0",
+				"cookie_count": "",
+				"delta_msec": "1078",
+				"delta_user_msec": "2341",
+				"domain_count": "27",
+				"element_count": "51",
+				"estimated_cache_delta_msec": "0",
+				"resp_bytes": "1302653",
+				"trans_level_comp_msec": "0"
+			}
+		}
+	]
+]
