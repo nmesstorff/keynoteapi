@@ -66,17 +66,27 @@ class KeynoteApi(object):
     def gen_api_url(api_cmd,
                     api_key,
                     api_format,
-                    api_base='https://api.keynote.com/keynote/api'):
-        """ generate a url for keynote access including json/xml format """
+                    api_base='https://api.keynote.com/keynote/api',
+                    additional_parameters=None):
+        """ generate a url for keynote access including json/xml format.
+        Additional get parameters, supplied as list/array are getting
+        concatenated with ampersands"""
         valid_formats = ('json', 'xml')
         if api_format not in valid_formats:
             raise ValueError("%s not in valid formats %s" % (api_format,
                              ", ".join(valid_formats)))
+
         api_url = "%s/%s?api_key=%s&format=%s" % (api_base, api_cmd,
                                                   api_key, api_format)
+
+        if additional_parameters is not None:
+            for key in additional_parameters.iterkeys():
+                api_url += '&%s=%s' % (key, additional_parameters[key])
+
         return api_url
 
-    def get_api_response(self, api_cmd):
+    def get_api_response(self, api_cmd, additional_parameters=None,
+                         eval_remaining_api_calls=True):
         """
             connect to the keynote api and consider the usage of a local cache
             to limit the needed requests (there is a hourly and daily limit).
@@ -93,9 +103,14 @@ class KeynoteApi(object):
                 )
 
         if use_cache or self.mockinput:
-            response = self.read_json_response_file(cache_filename)
+            response = self.read_json_response_file(cache_filename,
+                                                    eval_remaining_api_calls)
         else:
-            request_url = self.gen_api_url(api_cmd, self.api_key, 'json')
+            request_url = self.gen_api_url(api_cmd=api_cmd,
+                                           api_key=self.api_key,
+                                           api_format='json',
+                                           additional_parameters=
+                                           additional_parameters)
 
             if self.proxies is not None and \
                     self.proxies.get('socks') is not None:
@@ -141,7 +156,10 @@ class KeynoteApi(object):
                 response = json.load(request_cmd)
 
             self.write_json_response(response, self.cache_filename + api_cmd)
-            self.set_remaining_api_calls(response)
+
+            if eval_remaining_api_calls:
+                self.set_remaining_api_calls(response)
+
         return response
 
     @staticmethod
@@ -150,11 +168,12 @@ class KeynoteApi(object):
         with open(filename, 'wb') as outfile:
             json.dump(data, outfile)
 
-    def read_json_response_file(self, filename):
+    def read_json_response_file(self, filename, eval_remaining_api_calls=True):
         """ read JSON data from local disk """
         with open(filename, 'rb') as infile:
             response = json.load(infile)
-        self.set_remaining_api_calls(response)
+        if eval_remaining_api_calls:
+            self.set_remaining_api_calls(response)
         return response
 
     def set_remaining_api_calls(self, response):
@@ -176,6 +195,24 @@ class KeynoteApi(object):
     def get_dashboarddata(self):
         """ getter for processed dashboarddata """
         return self.get_api_response('getdashboarddata')
+
+    def get_graphdata_scatter(self,
+                              measurement_slot,
+                              relativehours=3600,
+                              transpagelist=0):
+        """ getter for plain graph data"""
+
+        params = {'slotidlist': measurement_slot,
+                  'basepageonly': 'true',
+                  'graphtype': 'scatter',
+                  'relativehours': relativehours}
+
+        if transpagelist > 0:
+            params.update({'transpagelist': transpagelist})
+
+        return self.get_api_response('getgraphdata',
+                                     additional_parameters=params,
+                                     eval_remaining_api_calls=False)
 
     def get_measurement_slots(self):
         """
