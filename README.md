@@ -17,6 +17,27 @@ You need a API token to use the keynote API: http://api.keynote.com/apiconsole/a
 Install all needed python modules via pip:
 `pip install -r requirements.txt`
 
+## Setup
+
+### [PEX](https://pex.readthedocs.io/)
+
+```bash
+cd keynoteapi/
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+pip install pex
+
+pex -r <(pip freeze) -c check_keynote -o check_keynote.pex ./
+
+deactivate
+mv check_keynote.pex /tmp
+cd /tmp
+./check_keynote.pex 
+usage: check_keynote [-h] [-v] [-t TIMEOUT] [-k APIKEY] [-p HTTPS_PROXY]
+...
+```
+
 ##Examples / How to start
  - Every command will print you a small help when starting with the '-h' or '--help' argument.
     `./keynoteCli.py -h`
