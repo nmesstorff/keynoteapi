@@ -95,7 +95,7 @@ class KeynoteApi(object):
         if use_cache or self.mockinput:
             response = self.read_json_response_file(cache_filename)
         else:
-            request_url = self.gen_api_url(api_cmd, self.api_key, 'json')
+            request_url = KeynoteApi.gen_api_url(api_cmd, self.api_key, 'json')
 
             if self.proxies is not None and \
                     self.proxies.get('socks') is not None:
@@ -140,7 +140,8 @@ class KeynoteApi(object):
                 # TODO if resp.status_code < 300 ...
                 response = json.load(request_cmd)
 
-            self.write_json_response(response, self.cache_filename + api_cmd)
+            KeynoteApi.write_json_response(response,
+                                           self.cache_filename + api_cmd)
             self.set_remaining_api_calls(response)
         return response
 
@@ -175,7 +176,9 @@ class KeynoteApi(object):
 
     def get_dashboarddata(self):
         """ getter for processed dashboarddata """
-        return self.get_api_response('getdashboarddata')
+        if self.dashboarddata is None:
+            self.dashboarddata = self.get_api_response('getdashboarddata')
+        return self.dashboarddata
 
     def get_measurement_slots(self):
         """
