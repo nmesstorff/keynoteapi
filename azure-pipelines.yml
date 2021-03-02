@@ -1,4 +1,11 @@
 # Starter pipeline
+- task: SnykSecurityScan@0
+  inputs:
+    serviceConnectionEndpoint: 'Snyk Norman private'
+    testType: 'app'
+    monitorOnBuild: true
+    failOnIssues: true
+    organization: 'nmesstorff'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
