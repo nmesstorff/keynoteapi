@@ -1,7 +1,7 @@
 # Create RPM packages for keynoteapi and dependencies.
 # For deployment targets without pip.
 
-FROM centos:6.6
+FROM centos:6.10
 MAINTAINER marthjod@gmail.com
 
 RUN yum upgrade -y
